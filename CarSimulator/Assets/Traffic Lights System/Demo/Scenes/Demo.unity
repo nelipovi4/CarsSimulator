@@ -124,6 +124,170 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2399858, guid: 12e4450028433344a81a6359e525182e, type: 3}
   m_PrefabInstance: {fileID: 2093808387}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &16150280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5729793642717854631, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+  m_PrefabInstance: {fileID: 318650219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &16150282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16150280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4d76f733087744991913c9d19d5274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.LensFlareComponentSRP
+  m_LensFlareData: {fileID: 11400000, guid: ea483a96690d5a348ad4ec95dcce03d2, type: 2}
+  version: 0
+  intensity: 0
+  maxAttenuationDistance: 100
+  maxAttenuationScale: 100
+  distanceAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleByDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  attenuationByLightShape: 0
+  radialScreenAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  useOcclusion: 0
+  useBackgroundCloudOcclusion: 0
+  environmentOcclusion: 0
+  useWaterOcclusion: 0
+  occlusionRadius: 0.1
+  sampleCount: 32
+  occlusionOffset: 0.05
+  scale: 1
+  allowOffScreen: 0
+  volumetricCloudOcclusion: 0
+  occlusionRemapCurve:
+    <length>k__BackingField: 2
+    m_Loop: 0
+    m_ZeroValue: 1
+    m_Range: 1
+    m_Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  lightOverride: {fileID: 0}
+--- !u!114 &16150283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16150280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!1 &51022275 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 186562, guid: 12e4450028433344a81a6359e525182e, type: 3}
@@ -732,6 +896,40 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 475114, guid: fa708ba5667dcf140a7abfa0b831d59a, type: 3}
   m_PrefabInstance: {fileID: 204828010}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &205236718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5962628951991475864, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+  m_PrefabInstance: {fileID: 318650219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &205236720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205236718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!1001 &207413973
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -860,6 +1058,170 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 494562, guid: ba5ae08c21bfe144085209a98e24059c, type: 3}
   m_PrefabInstance: {fileID: 216155446}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &216158543 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7616650544930638534, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+  m_PrefabInstance: {fileID: 318650219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &216158545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216158543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4d76f733087744991913c9d19d5274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.LensFlareComponentSRP
+  m_LensFlareData: {fileID: 11400000, guid: ea483a96690d5a348ad4ec95dcce03d2, type: 2}
+  version: 0
+  intensity: 0
+  maxAttenuationDistance: 100
+  maxAttenuationScale: 100
+  distanceAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleByDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  attenuationByLightShape: 0
+  radialScreenAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  useOcclusion: 0
+  useBackgroundCloudOcclusion: 0
+  environmentOcclusion: 0
+  useWaterOcclusion: 0
+  occlusionRadius: 0.1
+  sampleCount: 32
+  occlusionOffset: 0.05
+  scale: 1
+  allowOffScreen: 0
+  volumetricCloudOcclusion: 0
+  occlusionRemapCurve:
+    <length>k__BackingField: 2
+    m_Loop: 0
+    m_ZeroValue: 1
+    m_Range: 1
+    m_Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  lightOverride: {fileID: 0}
+--- !u!114 &216158546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216158543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!23 &245235744 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2302606, guid: 12e4450028433344a81a6359e525182e, type: 3}
@@ -1129,11 +1491,281 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 105726, guid: 12e4450028433344a81a6359e525182e, type: 3}
   m_PrefabInstance: {fileID: 2063710312}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &284588382 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7105203634063799993, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+  m_PrefabInstance: {fileID: 318650219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &284588384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284588382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4d76f733087744991913c9d19d5274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.LensFlareComponentSRP
+  m_LensFlareData: {fileID: 11400000, guid: ea483a96690d5a348ad4ec95dcce03d2, type: 2}
+  version: 0
+  intensity: 0
+  maxAttenuationDistance: 100
+  maxAttenuationScale: 100
+  distanceAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleByDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  attenuationByLightShape: 0
+  radialScreenAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  useOcclusion: 0
+  useBackgroundCloudOcclusion: 0
+  environmentOcclusion: 0
+  useWaterOcclusion: 0
+  occlusionRadius: 0.1
+  sampleCount: 32
+  occlusionOffset: 0.05
+  scale: 1
+  allowOffScreen: 0
+  volumetricCloudOcclusion: 0
+  occlusionRemapCurve:
+    <length>k__BackingField: 2
+    m_Loop: 0
+    m_ZeroValue: 1
+    m_Range: 1
+    m_Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  lightOverride: {fileID: 0}
 --- !u!1 &293350202 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 131688, guid: 12e4450028433344a81a6359e525182e, type: 3}
   m_PrefabInstance: {fileID: 905082386}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &294878917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3572736405526684696, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+  m_PrefabInstance: {fileID: 318650219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &294878919
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294878917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4d76f733087744991913c9d19d5274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.LensFlareComponentSRP
+  m_LensFlareData: {fileID: 11400000, guid: ea483a96690d5a348ad4ec95dcce03d2, type: 2}
+  version: 0
+  intensity: 0
+  maxAttenuationDistance: 100
+  maxAttenuationScale: 100
+  distanceAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleByDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  attenuationByLightShape: 0
+  radialScreenAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  useOcclusion: 0
+  useBackgroundCloudOcclusion: 0
+  environmentOcclusion: 0
+  useWaterOcclusion: 0
+  occlusionRadius: 0.1
+  sampleCount: 32
+  occlusionOffset: 0.05
+  scale: 1
+  allowOffScreen: 0
+  volumetricCloudOcclusion: 0
+  occlusionRemapCurve:
+    <length>k__BackingField: 2
+    m_Loop: 0
+    m_ZeroValue: 1
+    m_Range: 1
+    m_Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  lightOverride: {fileID: 0}
 --- !u!1001 &298126314
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1218,6 +1850,407 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2361894, guid: 12e4450028433344a81a6359e525182e, type: 3}
   m_PrefabInstance: {fileID: 2063710312}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &318650219
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 414907851512872189, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6f0158befee49f04b803fbd0bf220613, type: 2}
+    - target: {fileID: 642694662814434847, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: lensFlareURP
+      value: 
+      objectReference: {fileID: 1739837724}
+    - target: {fileID: 651344186115148151, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: lensFlareURP
+      value: 
+      objectReference: {fileID: 1152498722}
+    - target: {fileID: 723288741172496886, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 288bf1c7ddd42a545825c4b54581936e, type: 2}
+    - target: {fileID: 723288741172496886, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b103c5575bdcce7458140ac8bbb0f8ca, type: 2}
+    - target: {fileID: 1241720304320439014, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 288bf1c7ddd42a545825c4b54581936e, type: 2}
+    - target: {fileID: 1680454637131376855, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: lensFlareURP
+      value: 
+      objectReference: {fileID: 1992693209}
+    - target: {fileID: 1729152753309699460, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: lensFlareURP
+      value: 
+      objectReference: {fileID: 793715437}
+    - target: {fileID: 1928926418819188064, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: lensFlareURP
+      value: 
+      objectReference: {fileID: 1789693537}
+    - target: {fileID: 2295979660385754048, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 288bf1c7ddd42a545825c4b54581936e, type: 2}
+    - target: {fileID: 2295979660385754048, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 288bf1c7ddd42a545825c4b54581936e, type: 2}
+    - target: {fileID: 2295979660385754048, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 288bf1c7ddd42a545825c4b54581936e, type: 2}
+    - target: {fileID: 2295979660385754048, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 288bf1c7ddd42a545825c4b54581936e, type: 2}
+    - target: {fileID: 2295979660385754048, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[5]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 288bf1c7ddd42a545825c4b54581936e, type: 2}
+    - target: {fileID: 2295979660385754048, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[6]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fee2e4ae2578e4d45b65c3527aefe63e, type: 2}
+    - target: {fileID: 2295979660385754048, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[8]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 288bf1c7ddd42a545825c4b54581936e, type: 2}
+    - target: {fileID: 2295979660385754048, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[9]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 288bf1c7ddd42a545825c4b54581936e, type: 2}
+    - target: {fileID: 2295979660385754048, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[10]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 288bf1c7ddd42a545825c4b54581936e, type: 2}
+    - target: {fileID: 2295979660385754048, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[11]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 288bf1c7ddd42a545825c4b54581936e, type: 2}
+    - target: {fileID: 2295979660385754048, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[12]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 288bf1c7ddd42a545825c4b54581936e, type: 2}
+    - target: {fileID: 2575138877563340715, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 288bf1c7ddd42a545825c4b54581936e, type: 2}
+    - target: {fileID: 2575138877563340715, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b103c5575bdcce7458140ac8bbb0f8ca, type: 2}
+    - target: {fileID: 2575240277034323284, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 07d4f3f3228b9fb4ea3cf9f61158de3b, type: 2}
+    - target: {fileID: 3183818950965021742, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: m_Name
+      value: Muscle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3247098844195272321, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: m_Mass
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3247098844195272321, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: m_AngularDamping
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3568592891873658498, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6f0158befee49f04b803fbd0bf220613, type: 2}
+    - target: {fileID: 4226451623873346427, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6f0158befee49f04b803fbd0bf220613, type: 2}
+    - target: {fileID: 4489082701468173145, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6f0158befee49f04b803fbd0bf220613, type: 2}
+    - target: {fileID: 5129741640041603148, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 07d4f3f3228b9fb4ea3cf9f61158de3b, type: 2}
+    - target: {fileID: 5138707086348051809, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: lensFlareURP
+      value: 
+      objectReference: {fileID: 216158545}
+    - target: {fileID: 5390997202978753024, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b103c5575bdcce7458140ac8bbb0f8ca, type: 2}
+    - target: {fileID: 5432187965013793787, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: lensFlareURP
+      value: 
+      objectReference: {fileID: 16150282}
+    - target: {fileID: 5802776566758964068, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: lensFlareURP
+      value: 
+      objectReference: {fileID: 1182286594}
+    - target: {fileID: 5823842857904755001, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: lensFlareURP
+      value: 
+      objectReference: {fileID: 655380738}
+    - target: {fileID: 5826013273786929498, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6f0158befee49f04b803fbd0bf220613, type: 2}
+    - target: {fileID: 5886444283141601981, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: lensFlareURP
+      value: 
+      objectReference: {fileID: 713688396}
+    - target: {fileID: 6614962729437294836, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 288bf1c7ddd42a545825c4b54581936e, type: 2}
+    - target: {fileID: 6614962729437294836, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b103c5575bdcce7458140ac8bbb0f8ca, type: 2}
+    - target: {fileID: 6625125834941739221, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 288bf1c7ddd42a545825c4b54581936e, type: 2}
+    - target: {fileID: 6625125834941739221, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b103c5575bdcce7458140ac8bbb0f8ca, type: 2}
+    - target: {fileID: 6779485856057664292, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: lensFlareURP
+      value: 
+      objectReference: {fileID: 294878919}
+    - target: {fileID: 6913915027739927905, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b103c5575bdcce7458140ac8bbb0f8ca, type: 2}
+    - target: {fileID: 6987297471073633878, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: lensFlareURP
+      value: 
+      objectReference: {fileID: 555552837}
+    - target: {fileID: 7150888764004313815, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: lensFlareURP
+      value: 
+      objectReference: {fileID: 1071638421}
+    - target: {fileID: 7314350167155497848, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: maxEngineSoundPitch
+      value: 1.338
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314350167155497848, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: minEngineSoundPitch
+      value: 0.343
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314350167155497848, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: maxEngineSoundVolume
+      value: 0.144
+      objectReference: {fileID: 0}
+    - target: {fileID: 7314350167155497848, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: idleEngineSoundVolume
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 7335491195904210766, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6f0158befee49f04b803fbd0bf220613, type: 2}
+    - target: {fileID: 7424759045626597936, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: lensFlareURP
+      value: 
+      objectReference: {fileID: 969048580}
+    - target: {fileID: 7498144732823825776, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: lensFlareURP
+      value: 
+      objectReference: {fileID: 284588384}
+    - target: {fileID: 7504306564109984781, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: lensFlareURP
+      value: 
+      objectReference: {fileID: 368533306}
+    - target: {fileID: 7652495235071168373, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: lensFlareURP
+      value: 
+      objectReference: {fileID: 2023156664}
+    - target: {fileID: 7940211040968197625, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: lensFlareURP
+      value: 
+      objectReference: {fileID: 1248245852}
+    - target: {fileID: 8291805585253176407, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b103c5575bdcce7458140ac8bbb0f8ca, type: 2}
+    - target: {fileID: 8803285527501474014, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: b103c5575bdcce7458140ac8bbb0f8ca, type: 2}
+    - target: {fileID: 8880831659540822739, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6874879
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880831659540822739, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.76017743
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880831659540822739, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8100532
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880831659540822739, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 56.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880831659540822739, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880831659540822739, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.181
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880831659540822739, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880831659540822739, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880831659540822739, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880831659540822739, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880831659540822739, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880831659540822739, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880831659540822739, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7812126722481428304, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+    - {fileID: 9035980316013303295, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+    - {fileID: 4056712305101257495, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+    - {fileID: 5921344103866165825, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+    - {fileID: 2733567871959387734, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+    - {fileID: 3292058854557667328, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+    - {fileID: 6092236287951368601, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+    - {fileID: 7465462277999131712, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+    - {fileID: 6301311716474186704, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+    - {fileID: 9072613475420394338, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+    - {fileID: 6585845499094123201, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+    - {fileID: 3559508078429236529, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+    - {fileID: 758509320913651182, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+    - {fileID: 8779671437148996425, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+    - {fileID: 8895472301510112408, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+    - {fileID: 6088907059602085863, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+    - {fileID: 3919470660173648236, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+    - {fileID: 4811932046278807907, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6816024025502567110, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 655380739}
+    - targetCorrespondingSourceObject: {fileID: 6816024025502567110, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 655380738}
+    - targetCorrespondingSourceObject: {fileID: 379829998341383894, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1739837725}
+    - targetCorrespondingSourceObject: {fileID: 379829998341383894, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1739837724}
+    - targetCorrespondingSourceObject: {fileID: 6176068600770138620, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 555552838}
+    - targetCorrespondingSourceObject: {fileID: 6176068600770138620, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 555552837}
+    - targetCorrespondingSourceObject: {fileID: 7616650544930638534, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 216158546}
+    - targetCorrespondingSourceObject: {fileID: 7616650544930638534, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 216158545}
+    - targetCorrespondingSourceObject: {fileID: 3127551166544807639, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1071638422}
+    - targetCorrespondingSourceObject: {fileID: 3127551166544807639, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1071638421}
+    - targetCorrespondingSourceObject: {fileID: 2133063013897613684, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1992693210}
+    - targetCorrespondingSourceObject: {fileID: 2133063013897613684, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1992693209}
+    - targetCorrespondingSourceObject: {fileID: 3545758662055825238, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 969048581}
+    - targetCorrespondingSourceObject: {fileID: 3545758662055825238, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 969048580}
+    - targetCorrespondingSourceObject: {fileID: 5729793642717854631, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 16150283}
+    - targetCorrespondingSourceObject: {fileID: 5729793642717854631, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 16150282}
+    - targetCorrespondingSourceObject: {fileID: 5045143684797147915, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1152498723}
+    - targetCorrespondingSourceObject: {fileID: 5045143684797147915, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1152498722}
+    - targetCorrespondingSourceObject: {fileID: 4202687923996337962, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2023156665}
+    - targetCorrespondingSourceObject: {fileID: 4202687923996337962, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2023156664}
+    - targetCorrespondingSourceObject: {fileID: 5962628951991475864, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 205236720}
+    - targetCorrespondingSourceObject: {fileID: 1336398454235335319, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 883752580}
+    - targetCorrespondingSourceObject: {fileID: 3572736405526684696, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 294878919}
+    - targetCorrespondingSourceObject: {fileID: 2662259613853957050, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 368533306}
+    - targetCorrespondingSourceObject: {fileID: 1734489063830217630, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1789693537}
+    - targetCorrespondingSourceObject: {fileID: 7105203634063799993, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 284588384}
+    - targetCorrespondingSourceObject: {fileID: 4011365138430268799, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1182286594}
+    - targetCorrespondingSourceObject: {fileID: 3089745906608135787, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1248245852}
+    - targetCorrespondingSourceObject: {fileID: 7397247509212199115, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 713688396}
+    - targetCorrespondingSourceObject: {fileID: 6513168623559588089, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 793715437}
+  m_SourcePrefab: {fileID: 100100000, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
 --- !u!1 &322753622 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 131688, guid: 12e4450028433344a81a6359e525182e, type: 3}
@@ -1293,152 +2326,141 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d0942da8e0756d64fa0dc5f970badb08, type: 3}
---- !u!1001 &336889259
-PrefabInstance:
+--- !u!1 &368533304 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2662259613853957050, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+  m_PrefabInstance: {fileID: 318650219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &368533306
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 8.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -77.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.97984314
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0.19976859
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
-      propertyPath: field of view
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 2000000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
-      propertyPath: far clip plane
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
-      propertyPath: panLevelCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8200000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
-      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
---- !u!1001 &349091619
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 22400000, guid: 2169821f0567671499a5c10104c69c24, type: 2}
-      propertyPath: m_Pivot.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400000, guid: 2169821f0567671499a5c10104c69c24, type: 2}
-      propertyPath: m_Pivot.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400000, guid: 2169821f0567671499a5c10104c69c24, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400000, guid: 2169821f0567671499a5c10104c69c24, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400000, guid: 2169821f0567671499a5c10104c69c24, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400000, guid: 2169821f0567671499a5c10104c69c24, type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400000, guid: 2169821f0567671499a5c10104c69c24, type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400000, guid: 2169821f0567671499a5c10104c69c24, type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400000, guid: 2169821f0567671499a5c10104c69c24, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400000, guid: 2169821f0567671499a5c10104c69c24, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400000, guid: 2169821f0567671499a5c10104c69c24, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400000, guid: 2169821f0567671499a5c10104c69c24, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400000, guid: 2169821f0567671499a5c10104c69c24, type: 2}
-      propertyPath: m_LocalRotation.w
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368533304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4d76f733087744991913c9d19d5274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.LensFlareComponentSRP
+  m_LensFlareData: {fileID: 11400000, guid: ea483a96690d5a348ad4ec95dcce03d2, type: 2}
+  version: 0
+  intensity: 0
+  maxAttenuationDistance: 100
+  maxAttenuationScale: 100
+  distanceAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400000, guid: 2169821f0567671499a5c10104c69c24, type: 2}
-      propertyPath: m_LocalRotation.x
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400000, guid: 2169821f0567671499a5c10104c69c24, type: 2}
-      propertyPath: m_LocalRotation.y
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleByDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400000, guid: 2169821f0567671499a5c10104c69c24, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400000, guid: 2169821f0567671499a5c10104c69c24, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22400000, guid: 2169821f0567671499a5c10104c69c24, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2169821f0567671499a5c10104c69c24, type: 2}
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  attenuationByLightShape: 0
+  radialScreenAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  useOcclusion: 0
+  useBackgroundCloudOcclusion: 0
+  environmentOcclusion: 0
+  useWaterOcclusion: 0
+  occlusionRadius: 0.1
+  sampleCount: 32
+  occlusionOffset: 0.05
+  scale: 1
+  allowOffScreen: 0
+  volumetricCloudOcclusion: 0
+  occlusionRemapCurve:
+    <length>k__BackingField: 2
+    m_Loop: 0
+    m_ZeroValue: 1
+    m_Range: 1
+    m_Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  lightOverride: {fileID: 0}
 --- !u!1 &377238200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,6 +2473,7 @@ GameObject:
   - component: {fileID: 377238203}
   - component: {fileID: 377238201}
   - component: {fileID: 377238205}
+  - component: {fileID: 377238206}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -1569,6 +2592,27 @@ Terrain:
   m_EnableHeightmapRayTracing: 1
   m_EnableTreesAndDetailsRayTracing: 0
   m_TreeMotionVectorModeOverride: 3
+--- !u!65 &377238206
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 377238200}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0.27, z: 0}
 --- !u!1001 &394182121
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2734,6 +3778,170 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d50b2f9e77a44e4f8f6a683c95b44fa, type: 3}
+--- !u!1 &555552835 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6176068600770138620, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+  m_PrefabInstance: {fileID: 318650219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &555552837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555552835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4d76f733087744991913c9d19d5274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.LensFlareComponentSRP
+  m_LensFlareData: {fileID: 11400000, guid: ea483a96690d5a348ad4ec95dcce03d2, type: 2}
+  version: 0
+  intensity: 0
+  maxAttenuationDistance: 100
+  maxAttenuationScale: 100
+  distanceAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleByDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  attenuationByLightShape: 0
+  radialScreenAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  useOcclusion: 0
+  useBackgroundCloudOcclusion: 0
+  environmentOcclusion: 0
+  useWaterOcclusion: 0
+  occlusionRadius: 0.1
+  sampleCount: 32
+  occlusionOffset: 0.05
+  scale: 1
+  allowOffScreen: 0
+  volumetricCloudOcclusion: 0
+  occlusionRemapCurve:
+    <length>k__BackingField: 2
+    m_Loop: 0
+    m_ZeroValue: 1
+    m_Range: 1
+    m_Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  lightOverride: {fileID: 0}
+--- !u!114 &555552838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555552835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!1001 &558307752
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3104,6 +4312,170 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &655380736 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6816024025502567110, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+  m_PrefabInstance: {fileID: 318650219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &655380738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655380736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4d76f733087744991913c9d19d5274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.LensFlareComponentSRP
+  m_LensFlareData: {fileID: 11400000, guid: ea483a96690d5a348ad4ec95dcce03d2, type: 2}
+  version: 0
+  intensity: 0
+  maxAttenuationDistance: 100
+  maxAttenuationScale: 100
+  distanceAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleByDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  attenuationByLightShape: 0
+  radialScreenAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  useOcclusion: 0
+  useBackgroundCloudOcclusion: 0
+  environmentOcclusion: 0
+  useWaterOcclusion: 0
+  occlusionRadius: 0.1
+  sampleCount: 32
+  occlusionOffset: 0.05
+  scale: 1
+  allowOffScreen: 0
+  volumetricCloudOcclusion: 0
+  occlusionRemapCurve:
+    <length>k__BackingField: 2
+    m_Loop: 0
+    m_ZeroValue: 1
+    m_Range: 1
+    m_Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  lightOverride: {fileID: 0}
+--- !u!114 &655380739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655380736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!23 &656007180 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2399858, guid: 12e4450028433344a81a6359e525182e, type: 3}
@@ -3496,6 +4868,141 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 180164, guid: 12e4450028433344a81a6359e525182e, type: 3}
   m_PrefabInstance: {fileID: 2063710312}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &713688394 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7397247509212199115, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+  m_PrefabInstance: {fileID: 318650219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &713688396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713688394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4d76f733087744991913c9d19d5274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.LensFlareComponentSRP
+  m_LensFlareData: {fileID: 11400000, guid: ea483a96690d5a348ad4ec95dcce03d2, type: 2}
+  version: 0
+  intensity: 0
+  maxAttenuationDistance: 100
+  maxAttenuationScale: 100
+  distanceAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleByDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  attenuationByLightShape: 0
+  radialScreenAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  useOcclusion: 0
+  useBackgroundCloudOcclusion: 0
+  environmentOcclusion: 0
+  useWaterOcclusion: 0
+  occlusionRadius: 0.1
+  sampleCount: 32
+  occlusionOffset: 0.05
+  scale: 1
+  allowOffScreen: 0
+  volumetricCloudOcclusion: 0
+  occlusionRemapCurve:
+    <length>k__BackingField: 2
+    m_Loop: 0
+    m_ZeroValue: 1
+    m_Range: 1
+    m_Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  lightOverride: {fileID: 0}
 --- !u!1 &718471331 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 186562, guid: 12e4450028433344a81a6359e525182e, type: 3}
@@ -4025,6 +5532,141 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2379990, guid: 12e4450028433344a81a6359e525182e, type: 3}
   m_PrefabInstance: {fileID: 540457347}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &793715435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6513168623559588089, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+  m_PrefabInstance: {fileID: 318650219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &793715437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793715435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4d76f733087744991913c9d19d5274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.LensFlareComponentSRP
+  m_LensFlareData: {fileID: 11400000, guid: ea483a96690d5a348ad4ec95dcce03d2, type: 2}
+  version: 0
+  intensity: 0
+  maxAttenuationDistance: 100
+  maxAttenuationScale: 100
+  distanceAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleByDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  attenuationByLightShape: 0
+  radialScreenAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  useOcclusion: 0
+  useBackgroundCloudOcclusion: 0
+  environmentOcclusion: 0
+  useWaterOcclusion: 0
+  occlusionRadius: 0.1
+  sampleCount: 32
+  occlusionOffset: 0.05
+  scale: 1
+  allowOffScreen: 0
+  volumetricCloudOcclusion: 0
+  occlusionRemapCurve:
+    <length>k__BackingField: 2
+    m_Loop: 0
+    m_ZeroValue: 1
+    m_Range: 1
+    m_Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  lightOverride: {fileID: 0}
 --- !u!4 &793883094 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 475114, guid: fa708ba5667dcf140a7abfa0b831d59a, type: 3}
@@ -4419,11 +6061,137 @@ Transform:
   - {fileID: 1755980610}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &859236432
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 859236433}
+  - component: {fileID: 859236435}
+  - component: {fileID: 859236434}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &859236433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859236432}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1708842486}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &859236434
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859236432}
+  m_Enabled: 1
+--- !u!20 &859236435
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859236432}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &864305866 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 180164, guid: 12e4450028433344a81a6359e525182e, type: 3}
   m_PrefabInstance: {fileID: 540457347}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &883752578 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1336398454235335319, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+  m_PrefabInstance: {fileID: 318650219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &883752580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 883752578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!1001 &886613750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4806,6 +6574,170 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d50b2f9e77a44e4f8f6a683c95b44fa, type: 3}
+--- !u!1 &969048578 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3545758662055825238, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+  m_PrefabInstance: {fileID: 318650219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &969048580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969048578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4d76f733087744991913c9d19d5274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.LensFlareComponentSRP
+  m_LensFlareData: {fileID: 11400000, guid: ea483a96690d5a348ad4ec95dcce03d2, type: 2}
+  version: 0
+  intensity: 0
+  maxAttenuationDistance: 100
+  maxAttenuationScale: 100
+  distanceAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleByDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  attenuationByLightShape: 0
+  radialScreenAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  useOcclusion: 0
+  useBackgroundCloudOcclusion: 0
+  environmentOcclusion: 0
+  useWaterOcclusion: 0
+  occlusionRadius: 0.1
+  sampleCount: 32
+  occlusionOffset: 0.05
+  scale: 1
+  allowOffScreen: 0
+  volumetricCloudOcclusion: 0
+  occlusionRemapCurve:
+    <length>k__BackingField: 2
+    m_Loop: 0
+    m_ZeroValue: 1
+    m_Range: 1
+    m_Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  lightOverride: {fileID: 0}
+--- !u!114 &969048581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969048578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!1 &971568772 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 191368, guid: 12e4450028433344a81a6359e525182e, type: 3}
@@ -5033,6 +6965,170 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2319490, guid: 12e4450028433344a81a6359e525182e, type: 3}
   m_PrefabInstance: {fileID: 1405874268}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1071638419 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3127551166544807639, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+  m_PrefabInstance: {fileID: 318650219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1071638421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071638419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4d76f733087744991913c9d19d5274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.LensFlareComponentSRP
+  m_LensFlareData: {fileID: 11400000, guid: ea483a96690d5a348ad4ec95dcce03d2, type: 2}
+  version: 0
+  intensity: 0
+  maxAttenuationDistance: 100
+  maxAttenuationScale: 100
+  distanceAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleByDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  attenuationByLightShape: 0
+  radialScreenAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  useOcclusion: 0
+  useBackgroundCloudOcclusion: 0
+  environmentOcclusion: 0
+  useWaterOcclusion: 0
+  occlusionRadius: 0.1
+  sampleCount: 32
+  occlusionOffset: 0.05
+  scale: 1
+  allowOffScreen: 0
+  volumetricCloudOcclusion: 0
+  occlusionRemapCurve:
+    <length>k__BackingField: 2
+    m_Loop: 0
+    m_ZeroValue: 1
+    m_Range: 1
+    m_Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  lightOverride: {fileID: 0}
+--- !u!114 &1071638422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071638419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!23 &1077928846 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2319490, guid: 12e4450028433344a81a6359e525182e, type: 3}
@@ -5436,6 +7532,170 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 113288, guid: 12e4450028433344a81a6359e525182e, type: 3}
   m_PrefabInstance: {fileID: 905082386}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1152498720 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5045143684797147915, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+  m_PrefabInstance: {fileID: 318650219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1152498722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152498720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4d76f733087744991913c9d19d5274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.LensFlareComponentSRP
+  m_LensFlareData: {fileID: 11400000, guid: ea483a96690d5a348ad4ec95dcce03d2, type: 2}
+  version: 0
+  intensity: 0
+  maxAttenuationDistance: 100
+  maxAttenuationScale: 100
+  distanceAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleByDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  attenuationByLightShape: 0
+  radialScreenAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  useOcclusion: 0
+  useBackgroundCloudOcclusion: 0
+  environmentOcclusion: 0
+  useWaterOcclusion: 0
+  occlusionRadius: 0.1
+  sampleCount: 32
+  occlusionOffset: 0.05
+  scale: 1
+  allowOffScreen: 0
+  volumetricCloudOcclusion: 0
+  occlusionRemapCurve:
+    <length>k__BackingField: 2
+    m_Loop: 0
+    m_ZeroValue: 1
+    m_Range: 1
+    m_Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  lightOverride: {fileID: 0}
+--- !u!114 &1152498723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1152498720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!1001 &1166539872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5520,6 +7780,141 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2379990, guid: 12e4450028433344a81a6359e525182e, type: 3}
   m_PrefabInstance: {fileID: 1405874268}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1182286592 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4011365138430268799, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+  m_PrefabInstance: {fileID: 318650219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1182286594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182286592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4d76f733087744991913c9d19d5274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.LensFlareComponentSRP
+  m_LensFlareData: {fileID: 11400000, guid: ea483a96690d5a348ad4ec95dcce03d2, type: 2}
+  version: 0
+  intensity: 0
+  maxAttenuationDistance: 100
+  maxAttenuationScale: 100
+  distanceAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleByDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  attenuationByLightShape: 0
+  radialScreenAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  useOcclusion: 0
+  useBackgroundCloudOcclusion: 0
+  environmentOcclusion: 0
+  useWaterOcclusion: 0
+  occlusionRadius: 0.1
+  sampleCount: 32
+  occlusionOffset: 0.05
+  scale: 1
+  allowOffScreen: 0
+  volumetricCloudOcclusion: 0
+  occlusionRemapCurve:
+    <length>k__BackingField: 2
+    m_Loop: 0
+    m_ZeroValue: 1
+    m_Range: 1
+    m_Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  lightOverride: {fileID: 0}
 --- !u!1001 &1185967664
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5916,6 +8311,141 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 494562, guid: ba5ae08c21bfe144085209a98e24059c, type: 3}
   m_PrefabInstance: {fileID: 1241719395}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1248245850 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3089745906608135787, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+  m_PrefabInstance: {fileID: 318650219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1248245852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248245850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4d76f733087744991913c9d19d5274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.LensFlareComponentSRP
+  m_LensFlareData: {fileID: 11400000, guid: ea483a96690d5a348ad4ec95dcce03d2, type: 2}
+  version: 0
+  intensity: 0
+  maxAttenuationDistance: 100
+  maxAttenuationScale: 100
+  distanceAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleByDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  attenuationByLightShape: 0
+  radialScreenAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  useOcclusion: 0
+  useBackgroundCloudOcclusion: 0
+  environmentOcclusion: 0
+  useWaterOcclusion: 0
+  occlusionRadius: 0.1
+  sampleCount: 32
+  occlusionOffset: 0.05
+  scale: 1
+  allowOffScreen: 0
+  volumetricCloudOcclusion: 0
+  occlusionRemapCurve:
+    <length>k__BackingField: 2
+    m_Loop: 0
+    m_ZeroValue: 1
+    m_Range: 1
+    m_Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  lightOverride: {fileID: 0}
 --- !u!1 &1251661565 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 113288, guid: 12e4450028433344a81a6359e525182e, type: 3}
@@ -7626,6 +10156,7 @@ GameObject:
   - component: {fileID: 1586129405}
   - component: {fileID: 1586129404}
   - component: {fileID: 1586129403}
+  - component: {fileID: 1586129406}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: Untagged
@@ -7645,7 +10176,8 @@ Transform:
   m_LocalPosition: {x: 34.9, y: 4.8, z: -51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1708842486}
   m_Father: {fileID: 629918171}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1586129403
@@ -7751,6 +10283,74 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &1586129406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586129401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c260b9344a9770347934a90c90132918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RCC_Camera
+  cameraTarget:
+    playerVehicle: {fileID: 0}
+  isRendering: 1
+  actualCamera: {fileID: 0}
+  pivot: {fileID: 1708842485}
+  cameraMode: 0
+  TPSLockX: 1
+  TPSLockY: 1
+  TPSLockZ: 1
+  TPSFreeFall: 1
+  TPSDynamic: 0
+  useTopCameraMode: 0
+  useHoodCameraMode: 1
+  useOrbitInTPSCameraMode: 1
+  useOrbitInHoodCameraMode: 1
+  useWheelCameraMode: 1
+  useFixedCameraMode: 1
+  useCinematicCameraMode: 1
+  useOrthoForTopCamera: 0
+  useOcclusion: 1
+  occlusionLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  useAutoChangeCamera: 0
+  topCameraAngle: {x: 45, y: 45, z: 0}
+  topCameraDistance: 100
+  maximumZDistanceOffset: 10
+  TPSDistance: 6
+  TPSHeight: 2
+  TPSRotationDamping: 0.7
+  TPSTiltMaximum: 15
+  TPSTiltMultiplier: 1.5
+  TPSYaw: 0
+  TPSPitch: 10
+  TPSAutoFocus: 1
+  TPSAutoReverse: 1
+  TPSCollision: 1
+  TPSOffset: {x: 0, y: 0, z: 0.2}
+  TPSStartRotation: {x: 0, y: 0, z: 0}
+  TPSMinimumFOV: 40
+  TPSMaximumFOV: 60
+  hoodCameraFOV: 60
+  wheelCameraFOV: 60
+  minimumOrtSize: 10
+  maximumOrtSize: 20
+  acceleration: {x: 0, y: 0, z: 0}
+  lastVelocity: {x: 0, y: 0, z: 0}
+  acceleration_Smoothed: {x: 0, y: 0, z: 0}
+  minOrbitY: -15
+  maxOrbitY: 70
+  orbitXSpeed: 100
+  orbitYSpeed: 100
+  orbitSmooth: 40
+  orbitWithRotationDamping: 1
+  orbitReset: 0
+  lookBackNow: 0
 --- !u!23 &1592024865 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2302606, guid: 12e4450028433344a81a6359e525182e, type: 3}
@@ -8137,6 +10737,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a647083f6e18ac49bf751c5d15699a5, type: 3}
+--- !u!1 &1674805703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1674805705}
+  - component: {fileID: 1674805704}
+  m_Layer: 0
+  m_Name: RCC_SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1674805704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674805703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c662e5ba2773ae84abb47de8381ad2d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RCC_SceneManager
+  activePlayerVehicle: {fileID: 0}
+  activePlayerCamera: {fileID: 0}
+  activePlayerCanvas: {fileID: 0}
+  activeMainCamera: {fileID: 0}
+  registerLastSpawnedVehicleAsPlayerVehicle: 1
+  disableUIWhenNoPlayerVehicle: 0
+  loadCustomizationAtFirst: 0
+  useRecord: 0
+  allRecorders: []
+  recordMode: 0
+  allVehicles: []
+  allTerrains: []
+  terrainsInitialized: 0
+--- !u!4 &1674805705
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1674805703}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1682895289 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 131688, guid: 12e4450028433344a81a6359e525182e, type: 3}
@@ -8147,6 +10804,38 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2361894, guid: 12e4450028433344a81a6359e525182e, type: 3}
   m_PrefabInstance: {fileID: 2093808387}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1708842485
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1708842486}
+  m_Layer: 0
+  m_Name: Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1708842486
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708842485}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 859236433}
+  m_Father: {fileID: 1586129402}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1714552808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8287,6 +10976,170 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 475114, guid: fa708ba5667dcf140a7abfa0b831d59a, type: 3}
   m_PrefabInstance: {fileID: 1731574543}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1739837722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 379829998341383894, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+  m_PrefabInstance: {fileID: 318650219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1739837724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739837722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4d76f733087744991913c9d19d5274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.LensFlareComponentSRP
+  m_LensFlareData: {fileID: 11400000, guid: ea483a96690d5a348ad4ec95dcce03d2, type: 2}
+  version: 0
+  intensity: 0
+  maxAttenuationDistance: 100
+  maxAttenuationScale: 100
+  distanceAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleByDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  attenuationByLightShape: 0
+  radialScreenAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  useOcclusion: 0
+  useBackgroundCloudOcclusion: 0
+  environmentOcclusion: 0
+  useWaterOcclusion: 0
+  occlusionRadius: 0.1
+  sampleCount: 32
+  occlusionOffset: 0.05
+  scale: 1
+  allowOffScreen: 0
+  volumetricCloudOcclusion: 0
+  occlusionRemapCurve:
+    <length>k__BackingField: 2
+    m_Loop: 0
+    m_ZeroValue: 1
+    m_Range: 1
+    m_Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  lightOverride: {fileID: 0}
+--- !u!114 &1739837725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739837722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!1001 &1755474753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8499,6 +11352,141 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2319490, guid: 12e4450028433344a81a6359e525182e, type: 3}
   m_PrefabInstance: {fileID: 54661284}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1789693535 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1734489063830217630, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+  m_PrefabInstance: {fileID: 318650219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1789693537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789693535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4d76f733087744991913c9d19d5274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.LensFlareComponentSRP
+  m_LensFlareData: {fileID: 11400000, guid: ea483a96690d5a348ad4ec95dcce03d2, type: 2}
+  version: 0
+  intensity: 0
+  maxAttenuationDistance: 100
+  maxAttenuationScale: 100
+  distanceAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleByDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  attenuationByLightShape: 0
+  radialScreenAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  useOcclusion: 0
+  useBackgroundCloudOcclusion: 0
+  environmentOcclusion: 0
+  useWaterOcclusion: 0
+  occlusionRadius: 0.1
+  sampleCount: 32
+  occlusionOffset: 0.05
+  scale: 1
+  allowOffScreen: 0
+  volumetricCloudOcclusion: 0
+  occlusionRemapCurve:
+    <length>k__BackingField: 2
+    m_Loop: 0
+    m_ZeroValue: 1
+    m_Range: 1
+    m_Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  lightOverride: {fileID: 0}
 --- !u!1001 &1811561155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9235,6 +12223,170 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 475114, guid: fa708ba5667dcf140a7abfa0b831d59a, type: 3}
   m_PrefabInstance: {fileID: 298126314}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1992693207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2133063013897613684, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+  m_PrefabInstance: {fileID: 318650219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1992693209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992693207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4d76f733087744991913c9d19d5274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.LensFlareComponentSRP
+  m_LensFlareData: {fileID: 11400000, guid: ea483a96690d5a348ad4ec95dcce03d2, type: 2}
+  version: 0
+  intensity: 0
+  maxAttenuationDistance: 100
+  maxAttenuationScale: 100
+  distanceAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleByDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  attenuationByLightShape: 0
+  radialScreenAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  useOcclusion: 0
+  useBackgroundCloudOcclusion: 0
+  environmentOcclusion: 0
+  useWaterOcclusion: 0
+  occlusionRadius: 0.1
+  sampleCount: 32
+  occlusionOffset: 0.05
+  scale: 1
+  allowOffScreen: 0
+  volumetricCloudOcclusion: 0
+  occlusionRemapCurve:
+    <length>k__BackingField: 2
+    m_Loop: 0
+    m_ZeroValue: 1
+    m_Range: 1
+    m_Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  lightOverride: {fileID: 0}
+--- !u!114 &1992693210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1992693207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!1001 &1996378562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9302,6 +12454,170 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2379990, guid: 12e4450028433344a81a6359e525182e, type: 3}
   m_PrefabInstance: {fileID: 547230969}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2023156662 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4202687923996337962, guid: 47dbd5ef736e8784f82ecb8ebf70f429, type: 3}
+  m_PrefabInstance: {fileID: 318650219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2023156664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023156662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc4d76f733087744991913c9d19d5274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.LensFlareComponentSRP
+  m_LensFlareData: {fileID: 11400000, guid: ea483a96690d5a348ad4ec95dcce03d2, type: 2}
+  version: 0
+  intensity: 0
+  maxAttenuationDistance: 100
+  maxAttenuationScale: 100
+  distanceAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  scaleByDistanceCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  attenuationByLightShape: 0
+  radialScreenAttenuationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  useOcclusion: 0
+  useBackgroundCloudOcclusion: 0
+  environmentOcclusion: 0
+  useWaterOcclusion: 0
+  occlusionRadius: 0.1
+  sampleCount: 32
+  occlusionOffset: 0.05
+  scale: 1
+  allowOffScreen: 0
+  volumetricCloudOcclusion: 0
+  occlusionRemapCurve:
+    <length>k__BackingField: 2
+    m_Loop: 0
+    m_ZeroValue: 1
+    m_Range: 1
+    m_Curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+  lightOverride: {fileID: 0}
+--- !u!114 &2023156665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023156662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalLightData
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_CustomShadowLayers: 0
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+  m_RenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ShadowRenderingLayersMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_Version: 4
+  m_LightLayerMask: 1
+  m_ShadowLayerMask: 1
+  m_RenderingLayers: 1
+  m_ShadowRenderingLayers: 1
 --- !u!1 &2025268756
 GameObject:
   m_ObjectHideFlags: 0
@@ -10211,8 +13527,6 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 349091619}
-  - {fileID: 336889259}
   - {fileID: 629918171}
   - {fileID: 1122391322}
   - {fileID: 1097305868}
@@ -10241,3 +13555,5 @@ SceneRoots:
   - {fileID: 1503921190}
   - {fileID: 1371530889}
   - {fileID: 794802703}
+  - {fileID: 1674805705}
+  - {fileID: 318650219}
