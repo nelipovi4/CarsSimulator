@@ -449,7 +449,6 @@ public class RCC_SceneManager : RCC_Singleton<RCC_SceneManager> {
 
                 if (allTerrains[i].terrainData == null) {
 
-                    Debug.LogError("Terrain data for " + allTerrains[i].transform.name + " is missing. Check the terrain's data reference...");
                     yield return null;
 
                 }
