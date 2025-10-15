@@ -7,11 +7,12 @@
 //
 //----------------------------------------------
 
-using UnityEngine;
-using UnityEngine.Audio;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 
@@ -25,7 +26,13 @@ using UnityEngine.Rendering;
 /// - Visual Effects & Audio
 /// - Damage & Collision Handling
 /// </summary>
-public class RCC_CarControllerV4 : RCC_Core {
+public class RCC_CarControllerV4 : RCC_Core
+{
+
+    private string ValueCar = "Straight";
+    private int number_trigger = 0;
+    private bool isStop = false;
+    private bool isNPC;
 
     /// <summary>
     /// Determines if this vehicle can receive standard inputs from RCC_InputManager.
@@ -48,7 +55,7 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// If set to true, this vehicle does not take inputs from RCC_InputManager, 
     /// instead using inputs provided by OverrideInputs().
     /// </summary>
-    public bool overrideInputs = false;
+    public bool overrideInputs = true;
 
     #region Wheels
     //--------------------------------------------------------------------------------
@@ -108,9 +115,11 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Quick access to all wheel colliders on this vehicle. If uninitialized, it finds them.
     /// </summary>
-    public RCC_WheelCollider[] AllWheelColliders {
+    public RCC_WheelCollider[] AllWheelColliders
+    {
 
-        get {
+        get
+        {
 
             if (_allWheelColliders == null || _allWheelColliders.Length <= 0)
                 _allWheelColliders = GetComponentsInChildren<RCC_WheelCollider>(true);
@@ -125,9 +134,11 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Quick access to all RCC_Light components in children (head, brake, indicator, etc.).
     /// </summary>
-    public RCC_Light[] AllLights {
+    public RCC_Light[] AllLights
+    {
 
-        get {
+        get
+        {
 
             if (_allLights == null || _allLights.Length <= 0)
                 _allLights = GetComponentsInChildren<RCC_Light>(true);
@@ -272,8 +283,10 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// A direct reference to the rigidbody component.
     /// </summary>
-    public Rigidbody Rigid {
-        get {
+    public Rigidbody Rigid
+    {
+        get
+        {
             if (!_rigid)
                 _rigid = GetComponent<Rigidbody>();
             return _rigid;
@@ -522,13 +535,15 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// Represents a single gear's ratio and speed thresholds.
     /// </summary>
     [System.Serializable]
-    public class Gear {
+    public class Gear
+    {
 
         public float maxRatio;
         public int maxSpeed;
         public int targetSpeedForNextGear;
 
-        public void SetGear(float ratio, int speed, int targetSpeed) {
+        public void SetGear(float ratio, int speed, int targetSpeed)
+        {
 
             maxRatio = ratio;
             maxSpeed = speed;
@@ -1051,9 +1066,11 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Optional reference to a <c>RCC_Customizer</c> component for paint, body modifications, etc.
     /// </summary>
-    public RCC_Customizer Customizer {
+    public RCC_Customizer Customizer
+    {
 
-        get {
+        get
+        {
 
             if (!customizer)
                 customizer = GetComponent<RCC_Customizer>();
@@ -1094,7 +1111,23 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// </summary>
     public RCC_TruckTrailer attachedTrailer;
 
-    private void Awake() {
+    private void Awake()
+    {
+        if (gameObject.tag == "NPC")
+        {
+            isNPC = true;
+        }
+        else
+        {
+            isNPC = false;
+        }
+        if (isNPC)
+        {
+            overrideInputs = true;
+            RunEngineAtAwake = true;
+            engineRunning = true;
+        }
+
 
         // Limit the max angular velocity for performance & stability.
         Rigid.maxAngularVelocity = Settings.maxAngularVelocity;
@@ -1119,7 +1152,8 @@ public class RCC_CarControllerV4 : RCC_Core {
         RearLeftWheelCollider.wheelModel = RearLeftWheelTransform;
         RearRightWheelCollider.wheelModel = RearRightWheelTransform;
 
-        if (ExtraRearWheelsCollider != null) {
+        if (ExtraRearWheelsCollider != null)
+        {
 
             for (int i = 0; i < ExtraRearWheelsCollider.Length; i++)
                 ExtraRearWheelsCollider[i].wheelModel = ExtraRearWheelsTransform[i];
@@ -1141,7 +1175,8 @@ public class RCC_CarControllerV4 : RCC_Core {
             CheckBehavior();
 
         // If configured, start the engine upon Awake or if external controller is used.
-        if (RunEngineAtAwake || externalController) {
+        if (RunEngineAtAwake || externalController)
+        {
 
             engineRunning = true;
             fuelInput = 1f;
@@ -1161,7 +1196,9 @@ public class RCC_CarControllerV4 : RCC_Core {
 
     }
 
-    private void OnEnable() {
+
+    private void OnEnable()
+    {
 
         // Reset gear, drift, and assistance flags.
         changingGear = false;
@@ -1194,7 +1231,8 @@ public class RCC_CarControllerV4 : RCC_Core {
         resetTime = 0f;
 
         // If the engine is running, set initial RPM to minEngineRPM.
-        if (engineRunning) {
+        if (engineRunning)
+        {
 
             engineRPMRaw = minEngineRPM;
             engineRPM = engineRPMRaw;
@@ -1225,12 +1263,14 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Invokes OnRCCPlayerSpawned event for this vehicle after one frame.
     /// </summary>
-    private IEnumerator RCCPlayerSpawned() {
+    private IEnumerator RCCPlayerSpawned()
+    {
 
         yield return new WaitForEndOfFrame();
 
         // If not an external/AI controller, raise the player spawned event.
-        if (!externalController) {
+        if (!externalController)
+        {
 
             if (OnRCCPlayerSpawned != null)
                 OnRCCPlayerSpawned(this);
@@ -1242,7 +1282,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Creates all wheel colliders in an editor script scenario. Not used at runtime typically.
     /// </summary>
-    public void CreateWheelColliders() {
+    public void CreateWheelColliders()
+    {
 
         CreateWheelColliders(this);
 
@@ -1251,19 +1292,24 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Creates and configures the multiple audio sources needed for engine, reversing, wind, etc.
     /// </summary>
-    private void CreateAudios() {
+    private void CreateAudios()
+    {
 
-        switch (audioType) {
+        switch (audioType)
+        {
 
             case AudioType.OneSource:
                 engineSoundHigh = NewAudioSource(Settings.audioMixer, gameObject, engineSoundPosition, "Engine Sound High AudioSource", 5, 50, 0, engineClipHigh, true, true, false);
 
-                if (autoCreateEngineOffSounds) {
+                if (autoCreateEngineOffSounds)
+                {
 
                     engineSoundHighOff = NewAudioSource(Settings.audioMixer, gameObject, engineSoundPosition, "Engine Sound High Off AudioSource", 5, 50, 0, engineClipHigh, true, true, false);
                     NewLowPassFilter(engineSoundHighOff, 3000f);
 
-                } else {
+                }
+                else
+                {
 
                     engineSoundHighOff = NewAudioSource(Settings.audioMixer, gameObject, engineSoundPosition, "Engine Sound High Off AudioSource", 5, 50, 0, engineClipHighOff, true, true, false);
 
@@ -1275,7 +1321,8 @@ public class RCC_CarControllerV4 : RCC_Core {
                 engineSoundHigh = NewAudioSource(Settings.audioMixer, gameObject, engineSoundPosition, "Engine Sound High AudioSource", 5, 50, 0, engineClipHigh, true, true, false);
                 engineSoundLow = NewAudioSource(Settings.audioMixer, gameObject, engineSoundPosition, "Engine Sound Low AudioSource", 5, 25, 0, engineClipLow, true, true, false);
 
-                if (autoCreateEngineOffSounds) {
+                if (autoCreateEngineOffSounds)
+                {
 
                     engineSoundHighOff = NewAudioSource(Settings.audioMixer, gameObject, engineSoundPosition, "Engine Sound High Off AudioSource", 5, 50, 0, engineClipHigh, true, true, false);
                     engineSoundLowOff = NewAudioSource(Settings.audioMixer, gameObject, engineSoundPosition, "Engine Sound Low Off AudioSource", 5, 25, 0, engineClipLow, true, true, false);
@@ -1283,7 +1330,9 @@ public class RCC_CarControllerV4 : RCC_Core {
                     NewLowPassFilter(engineSoundHighOff, 3000f);
                     NewLowPassFilter(engineSoundLowOff, 3000f);
 
-                } else {
+                }
+                else
+                {
 
                     engineSoundHighOff = NewAudioSource(Settings.audioMixer, gameObject, engineSoundPosition, "Engine Sound High Off AudioSource", 5, 50, 0, engineClipHighOff, true, true, false);
                     engineSoundLowOff = NewAudioSource(Settings.audioMixer, gameObject, engineSoundPosition, "Engine Sound Low Off AudioSource", 5, 25, 0, engineClipLowOff, true, true, false);
@@ -1297,7 +1346,8 @@ public class RCC_CarControllerV4 : RCC_Core {
                 engineSoundMed = NewAudioSource(Settings.audioMixer, gameObject, engineSoundPosition, "Engine Sound Medium AudioSource", 5, 50, 0, engineClipMed, true, true, false);
                 engineSoundLow = NewAudioSource(Settings.audioMixer, gameObject, engineSoundPosition, "Engine Sound Low AudioSource", 5, 25, 0, engineClipLow, true, true, false);
 
-                if (autoCreateEngineOffSounds) {
+                if (autoCreateEngineOffSounds)
+                {
 
                     engineSoundHighOff = NewAudioSource(Settings.audioMixer, gameObject, engineSoundPosition, "Engine Sound High Off AudioSource", 5, 50, 0, engineClipHigh, true, true, false);
                     engineSoundMedOff = NewAudioSource(Settings.audioMixer, gameObject, engineSoundPosition, "Engine Sound Medium Off AudioSource", 5, 50, 0, engineClipMed, true, true, false);
@@ -1310,7 +1360,9 @@ public class RCC_CarControllerV4 : RCC_Core {
                     if (engineSoundLowOff)
                         NewLowPassFilter(engineSoundLowOff, 3000f);
 
-                } else {
+                }
+                else
+                {
 
                     engineSoundHighOff = NewAudioSource(Settings.audioMixer, gameObject, engineSoundPosition, "Engine Sound High Off AudioSource", 5, 50, 0, engineClipHighOff, true, true, false);
                     engineSoundMedOff = NewAudioSource(Settings.audioMixer, gameObject, engineSoundPosition, "Engine Sound Medium Off AudioSource", 5, 50, 0, engineClipMedOff, true, true, false);
@@ -1332,7 +1384,8 @@ public class RCC_CarControllerV4 : RCC_Core {
         if (useNOS || useTurbo)
             blowSound = NewAudioSource(Settings.audioMixer, gameObject, exhaustSoundPosition, "NOS Blow", 1f, 10f, .5f, null, false, false, false);
 
-        if (useTurbo) {
+        if (useTurbo)
+        {
 
             turboSound = NewAudioSource(Settings.audioMixer, gameObject, turboSoundPosition, "Turbo Sound AudioSource", .1f, .5f, 0f, TurboClip, true, true, false);
             NewHighPassFilter(turboSound, 10000f, 10);
@@ -1344,7 +1397,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Checks if a selected behavior is set in RCC Settings and applies it if <c>overrideBehavior</c> is false.
     /// </summary>
-    private void CheckBehavior() {
+    private void CheckBehavior()
+    {
 
         if (overrideBehavior)
             return;
@@ -1359,7 +1413,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Rebuilds the engineTorqueCurve with three key points: minEngineRPM, maxEngineTorqueAtRPM, and maxEngineRPM.
     /// </summary>
-    public void ReCreateEngineTorqueCurve() {
+    public void ReCreateEngineTorqueCurve()
+    {
 
         engineTorqueCurve = new AnimationCurve();
         engineTorqueCurve.AddKey(minEngineRPM, maxEngineTorque / 2f);
@@ -1373,42 +1428,52 @@ public class RCC_CarControllerV4 : RCC_Core {
 
     }
 
-    private void CalculateMaxSpeed() {
+    private void CalculateMaxSpeed()
+    {
 
-        // Calculating average traction wheel radius.
-        float averagePowerWheelRadius = 0f;
-        int counter = 0;
-
-        for (int i = 0; i < AllWheelColliders.Length; i++) {
-
-            if (AllWheelColliders[i] == null || !AllWheelColliders[i].canPower || !AllWheelColliders[i].enabled)
-                continue;
-
-            counter++;
-            averagePowerWheelRadius += AllWheelColliders[i].WheelCollider.radius;
+        if (isNPC)
+        {
+            for (int i = 0; i < gears.Length; i++)
+                gears[i].maxSpeed = 30;
         }
-
-        if (counter > 0)
-            averagePowerWheelRadius /= counter;
         else
-            return;
+        {
+            float averagePowerWheelRadius = 0f;
+            int counter = 0;
 
-        // Calculating max speed at last gear as km/h unit.
-        maxspeed = maxEngineRPM / (gears[gears.Length - 1].maxRatio * finalRatio);
-        maxspeed = (maxspeed * 60f / 1000f) * (2 * Mathf.PI * averagePowerWheelRadius);
+            for (int i = 0; i < AllWheelColliders.Length; i++)
+            {
 
-        float maxSpeedForGears = maxspeed * gears[gears.Length - 1].maxRatio;
+                if (AllWheelColliders[i] == null || !AllWheelColliders[i].canPower || !AllWheelColliders[i].enabled)
+                    continue;
 
-        // Calculating max speed for each gear.
-        for (int i = 0; i < gears.Length; i++)
-            gears[i].maxSpeed = (int)(maxSpeedForGears / gears[i].maxRatio);
+                counter++;
+                averagePowerWheelRadius += AllWheelColliders[i].WheelCollider.radius;
+            }
+
+            if (counter > 0)
+                averagePowerWheelRadius /= counter;
+            else
+                return;
+
+            // Calculating max speed at last gear as km/h unit.
+            maxspeed = maxEngineRPM / (gears[gears.Length - 1].maxRatio * finalRatio);
+            maxspeed = (maxspeed * 60f / 1000f) * (2 * Mathf.PI * averagePowerWheelRadius);
+
+            float maxSpeedForGears = maxspeed * gears[gears.Length - 1].maxRatio;
+
+            // Calculating max speed for each gear.
+            for (int i = 0; i < gears.Length; i++)
+                gears[i].maxSpeed = (int)(maxSpeedForGears / gears[i].maxRatio);
+        }
 
     }
 
     /// <summary>
     /// Creates default gear ratios and speed thresholds based on totalGears, if none exist.
     /// </summary>
-    public void InitGears() {
+    public void InitGears()
+    {
 
         gears = new Gear[totalGears];
 
@@ -1433,14 +1498,16 @@ public class RCC_CarControllerV4 : RCC_Core {
         if (gears.Length == 8)
             gearRatio = new float[] { 4.6f, 2.5f, 1.86f, 1.43f, 1.23f, 1.05f, .9f, .72f };
 
-        for (int i = 0; i < gears.Length; i++) {
+        for (int i = 0; i < gears.Length; i++)
+        {
 
             maxSpeedForGear[i] = (int)((maxspeed / gears.Length) * (i + 1));
             targetSpeedForGear[i] = (int)(Mathf.Lerp(0, maxspeed * Mathf.Lerp(0f, 1f, gearShiftingThreshold), ((float)(i + 1) / (float)(gears.Length))));
 
         }
 
-        for (int i = 0; i < gears.Length; i++) {
+        for (int i = 0; i < gears.Length; i++)
+        {
 
             gears[i] = new Gear();
             gears[i].SetGear(gearRatio[i], maxSpeedForGear[i], targetSpeedForGear[i]);
@@ -1452,7 +1519,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Toggles the engine state (kill if running, start if not).
     /// </summary>
-    public void KillOrStartEngine() {
+    public void KillOrStartEngine()
+    {
 
         if (engineRunning)
             KillEngine();
@@ -1464,7 +1532,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Immediately starts the engine (if not already running).
     /// </summary>
-    public void StartEngine() {
+    public void StartEngine()
+    {
 
         if (!engineRunning)
             StartCoroutine(StartEngineDelayed());
@@ -1474,14 +1543,18 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Starts the engine, optionally instantly or via a start clip coroutine.
     /// </summary>
-    public void StartEngine(bool instantStart) {
+    public void StartEngine(bool instantStart)
+    {
 
-        if (instantStart) {
+        if (instantStart)
+        {
 
             fuelInput = 1f;
             engineRunning = true;
 
-        } else {
+        }
+        else
+        {
 
             StartCoroutine(StartEngineDelayed());
 
@@ -1492,9 +1565,11 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Plays an engine start sound, then sets engineRunning to true.
     /// </summary>
-    public IEnumerator StartEngineDelayed() {
+    public IEnumerator StartEngineDelayed()
+    {
 
-        if (!engineRunning) {
+        if (!engineRunning)
+        {
 
             NewAudioSource(Settings.audioMixer, gameObject, engineSoundPosition, "Engine Start AudioSource", 1, 10, 1, engineStartClip, false, true, true);
             yield return new WaitForSeconds(1f);
@@ -1508,7 +1583,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Kills the engine by setting engineRunning = false and removing fuel input.
     /// </summary>
-    public void KillEngine() {
+    public void KillEngine()
+    {
 
         fuelInput = 0f;
         engineRunning = false;
@@ -1519,14 +1595,17 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// Handles steering wheel model rotation in the interior. 
     /// Used for visual feedback when the player steers.
     /// </summary>
-    private void OtherVisuals() {
+    private void OtherVisuals()
+    {
 
-        if (SteeringWheel) {
+        if (SteeringWheel)
+        {
 
             if (orgSteeringWheelRot.eulerAngles == Vector3.zero)
                 orgSteeringWheelRot = SteeringWheel.transform.localRotation;
 
-            switch (steeringWheelRotateAround) {
+            switch (steeringWheelRotateAround)
+            {
 
                 case SteeringWheelRotateAround.XAxis:
                     SteeringWheel.transform.localRotation = Quaternion.Lerp(
@@ -1556,13 +1635,14 @@ public class RCC_CarControllerV4 : RCC_Core {
         }
     }
 
-    private void Update() {
-
+    private void Update()
+    {
         Inputs();
         Audio();
         CheckReset();
 
-        if (useDamage) {
+        if (useDamage)
+        {
 
             damage.UpdateRepair();
             damage.UpdateDamage();
@@ -1588,13 +1668,63 @@ public class RCC_CarControllerV4 : RCC_Core {
 
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate()
+    {
+        // ЕСЛИ ОСТАНОВЛЕНА (для NPC) - ТОЛЬКО ТОРМОЗИМ И ВЫХОДИМ
+        if (isStop && isNPC)
+        {
+            throttleInput = 0f;
+            brakeInput = 1f;
+            steerInput = 0f;
+            clutchInput = 1f; // Выжимаем сцепление
 
-        CalculateMaxSpeed();
+            // Применяем тормоза напрямую
+            for (int i = 0; i < AllWheelColliders.Length; i++)
+            {
+                if (AllWheelColliders[i] != null && AllWheelColliders[i].WheelCollider != null)
+                {
+                    AllWheelColliders[i].WheelCollider.brakeTorque = brakeTorque;
+                    AllWheelColliders[i].WheelCollider.motorTorque = 0f;
+                }
+            }
+
+            // Удерживаем на месте
+            Rigid.linearVelocity = Vector3.zero;
+            Rigid.angularVelocity = Vector3.zero;
+
+            return; // НЕ ВЫПОЛНЯЕМ ОСТАЛЬНОЕ!
+        }
+
+        // ЛОГИКА NPC ДВИЖЕНИЯ (только когда НЕ остановлена)
+        if (isNPC && !isStop)
+        {
+            if (ValueCar == "Straight")
+            {
+                throttleInput = 1;
+                brakeInput = 0f;
+                steerInput = 0f;
+                CalculateMaxSpeed();
+            }
+            else if (ValueCar == "Right")
+            {
+                throttleInput = 1;
+                brakeInput = 0f;
+                steerInput = 1f;
+                CalculateMaxSpeed();
+            }
+            else if (ValueCar == "LeftMID")
+            {
+                throttleInput = 1;
+                brakeInput = 0f;
+                steerInput = -1f;
+            }
+        }
+
 
         Vector3 locVel = transform.InverseTransformDirection(Rigid.angularVelocity);
 
-        switch (COMAssister) {
+        switch (COMAssister)
+        {
             case COMAssisterTypes.Off:
                 locVel *= 0f;
                 break;
@@ -1629,7 +1759,8 @@ public class RCC_CarControllerV4 : RCC_Core {
         if (autoGenerateEngineRPMCurve && (oldEngineTorque != maxEngineTorque || oldMaxTorqueAtRPM != maxEngineTorqueAtRPM || minEngineRPM != oldMinEngineRPM || maxEngineRPM != oldMaxEngineRPM))
             ReCreateEngineTorqueCurve();
 
-        if (gears == null || gears.Length == 0) {
+        if (gears == null || gears.Length == 0)
+        {
 
             print("Gear can not be 0! Recreating gears...");
             InitGears();
@@ -1638,7 +1769,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
         int currentPoweredWheels = 0;
 
-        for (int i = 0; i < AllWheelColliders.Length; i++) {
+        for (int i = 0; i < AllWheelColliders.Length; i++)
+        {
 
             if (AllWheelColliders[i].canPower)
                 currentPoweredWheels++;
@@ -1651,14 +1783,20 @@ public class RCC_CarControllerV4 : RCC_Core {
         Steering();
         Wheels();
 
-        if (canControl) {
-
-            if (automaticClutch)
+        if (canControl)
+        {
+            // Для NPC отключаем автоматическое сцепление
+            if (automaticClutch && !isNPC)
                 AutomaticClutch();
 
             if (automaticGear)
                 AutomaticGearbox();
+        }
 
+        // Для NPC управляем сцеплением вручную
+        if (isNPC && !isStop)
+        {
+            clutchInput = 0f; // Всегда отпущено для NPC
         }
 
         AntiRollBars();
@@ -1688,11 +1826,14 @@ public class RCC_CarControllerV4 : RCC_Core {
         if (angularDragHelper)
             AngularDragHelper();
 
-        if (ESP) {
+        if (ESP)
+        {
 
             ESPCheck();
 
-        } else {
+        }
+        else
+        {
 
             frontSlip = 0f;
             rearSlip = 0f;
@@ -1702,9 +1843,11 @@ public class RCC_CarControllerV4 : RCC_Core {
 
         }
 
-        if (!overrideBehavior && Settings.selectedBehaviorType != null && Settings.selectedBehaviorType.applyRelativeTorque) {
+        if (!overrideBehavior && Settings.selectedBehaviorType != null && Settings.selectedBehaviorType.applyRelativeTorque)
+        {
 
-            if (isGrounded) {
+            if (isGrounded)
+            {
 
                 // Get local velocity components
                 Vector3 relativeVelocity = transform.InverseTransformDirection(Rigid.linearVelocity);
@@ -1722,23 +1865,32 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Gathers input from RCC_InputManager or uses external override if set.
     /// </summary>
-    private void Inputs() {
+    private void Inputs()
+    {
 
-        if (canControl) {
+        if (canControl)
+        {
 
-            if (!externalController) {
+            if (!externalController)
+            {
 
                 if (!overrideInputs)
-                    inputs = RCC_InputManager.Instance.inputs;
+                    if (!isNPC)
+                    {
+                        inputs = RCC_InputManager.Instance.inputs;
+                    }
 
-                if (!automaticGear || semiAutomaticGear) {
+                if (!automaticGear || semiAutomaticGear)
+                {
 
                     if (!changingGear && !cutGas)
                         throttleInput = inputs.throttleInput;
                     else
                         throttleInput = 0f;
 
-                } else {
+                }
+                else
+                {
 
                     if (!changingGear && !cutGas)
                         throttleInput = (direction == 1 ? Mathf.Clamp01(inputs.throttleInput) : Mathf.Clamp01(inputs.brakeInput));
@@ -1747,11 +1899,14 @@ public class RCC_CarControllerV4 : RCC_Core {
 
                 }
 
-                if (!automaticGear || semiAutomaticGear) {
+                if (!automaticGear || semiAutomaticGear)
+                {
 
                     brakeInput = Mathf.Clamp01(inputs.brakeInput);
 
-                } else {
+                }
+                else
+                {
 
                     if (!cutGas)
                         brakeInput = (direction == 1 ? Mathf.Clamp01(inputs.brakeInput) : Mathf.Clamp01(inputs.throttleInput));
@@ -1760,14 +1915,17 @@ public class RCC_CarControllerV4 : RCC_Core {
 
                 }
 
-                if (useSteeringSensitivity) {
+                if (useSteeringSensitivity)
+                {
 
                     bool oppositeDirection = Mathf.Sign(inputs.steerInput) != Mathf.Sign(steerInput);
 
                     steerInput = Mathf.MoveTowards(steerInput, inputs.steerInput + counterSteerInput,
                         (Time.deltaTime * steeringSensitivityFactor * Mathf.Lerp(10f, 5f, steerAngle / orgSteerAngle)) * (oppositeDirection ? 1f : 1f));
 
-                } else {
+                }
+                else
+                {
 
                     steerInput = inputs.steerInput + counterSteerInput;
 
@@ -1778,7 +1936,8 @@ public class RCC_CarControllerV4 : RCC_Core {
                 boostInput = inputs.boostInput;
                 handbrakeInput = inputs.handbrakeInput;
 
-                if (!automaticClutch) {
+                if (!automaticClutch)
+                {
 
                     if (!NGear)
                         clutchInput = inputs.clutchInput;
@@ -1789,7 +1948,9 @@ public class RCC_CarControllerV4 : RCC_Core {
 
             }
 
-        } else if (!externalController) {
+        }
+        else if (!externalController)
+        {
 
             throttleInput = 0f;
             brakeInput = 0f;
@@ -1799,7 +1960,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
         }
 
-        if (fuelInput <= 0f) {
+        if (fuelInput <= 0f)
+        {
 
             throttleInput = 0f;
             engineRunning = false;
@@ -1818,11 +1980,14 @@ public class RCC_CarControllerV4 : RCC_Core {
         boostInput = Mathf.Clamp01(boostInput);
         handbrakeInput = Mathf.Clamp01(handbrakeInput);
 
-        if (autoReverse) {
+        if (autoReverse)
+        {
 
             canGoReverseNow = true;
 
-        } else {
+        }
+        else
+        {
 
             if (brakeInput < .5f && speed < 5)
                 canGoReverseNow = true;
@@ -1831,7 +1996,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
         }
 
-        if (automaticGear && !semiAutomaticGear && !changingGear) {
+        if (automaticGear && !semiAutomaticGear && !changingGear)
+        {
 
             if (brakeInput > .9f && transform.InverseTransformDirection(Rigid.linearVelocity).z < 1f && canGoReverseNow && direction != -1)
                 StartCoroutine(ChangeGear(-1));
@@ -1846,7 +2012,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// Clamps steering input if the vehicle is sliding, 
     /// and optionally adds a small counter-steer input if drifting.
     /// </summary>
-    private void SteeringAssistance() {
+    private void SteeringAssistance()
+    {
 
         float sidewaysSlip = 0f;
 
@@ -1855,7 +2022,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
         sidewaysSlip /= AllWheelColliders.Length;
 
-        if (useSteeringLimiter) {
+        if (useSteeringLimiter)
+        {
 
             float maxSteerInput = Mathf.Clamp(1f - Mathf.Abs(sidewaysSlip), -1f, 1f);
             float sign = -Mathf.Sign(sidewaysSlip);
@@ -1875,11 +2043,13 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Calculates and updates engine RPM based on current gear, throttle, clutch, and wheel RPM.
     /// </summary>
-    private void Engine() {
+    private void Engine()
+    {
 
         float tractionRPM = 0;
 
-        for (int i = 0; i < AllWheelColliders.Length; i++) {
+        for (int i = 0; i < AllWheelColliders.Length; i++)
+        {
 
             if (AllWheelColliders[i].canPower)
                 tractionRPM += Mathf.Abs(AllWheelColliders[i].WheelCollider.rpm);
@@ -1906,9 +2076,11 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Adjusts steerAngle based on SteeringType (Curve, Simple, Constant).
     /// </summary>
-    private void Steering() {
+    private void Steering()
+    {
 
-        switch (steeringType) {
+        switch (steeringType)
+        {
             case SteeringType.Curve:
                 steerAngle = steerAngleCurve.Evaluate(speed);
                 break;
@@ -1926,7 +2098,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Processes engine and driving assistance audio, plus wind and brake sounds.
     /// </summary>
-    private void Audio() {
+    private void Audio()
+    {
 
         EngineSounds();
 
@@ -1944,9 +2117,11 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// Checks slip angles at front and rear wheels to determine if the vehicle is understeering or oversteering. 
     /// Activates ESP assistance if needed.
     /// </summary>
-    private void ESPCheck() {
+    private void ESPCheck()
+    {
 
-        if (ESPBroken) {
+        if (ESPBroken)
+        {
 
             frontSlip = 0f;
             rearSlip = 0f;
@@ -1981,7 +2156,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// Applies engine sound logic across multiple audio sources depending on AudioType. 
     /// Adjusts volume/pitch with engine RPM and throttle.
     /// </summary>
-    private void EngineSounds() {
+    private void EngineSounds()
+    {
 
         float lowRPM, medRPM, highRPM;
 
@@ -2004,7 +2180,8 @@ public class RCC_CarControllerV4 : RCC_Core {
         float volumeLevel = Mathf.Clamp(throttleInput, 0f, 1f);
         float pitchLevel = Mathf.Lerp(minEngineSoundPitch, maxEngineSoundPitch, engineRPM / maxEngineRPM) * (engineRunning ? 1f : 0f);
 
-        switch (audioType) {
+        switch (audioType)
+        {
 
             case AudioType.OneSource:
                 engineSoundHigh.volume = volumeLevel * maxEngineSoundVolume;
@@ -2013,7 +2190,8 @@ public class RCC_CarControllerV4 : RCC_Core {
                 engineSoundHighOff.volume = (1f - volumeLevel) * maxEngineSoundVolume;
                 engineSoundHighOff.pitch = pitchLevel;
 
-                if (engineSoundIdle) {
+                if (engineSoundIdle)
+                {
                     engineSoundIdle.volume = Mathf.Lerp(engineRunning ? idleEngineSoundVolume : 0f, 0f, engineRPM / maxEngineRPM);
                     engineSoundIdle.pitch = pitchLevel;
                 }
@@ -2036,7 +2214,8 @@ public class RCC_CarControllerV4 : RCC_Core {
                 engineSoundLowOff.volume = lowRPM * (1f - volumeLevel);
                 engineSoundLowOff.pitch = pitchLevel;
 
-                if (engineSoundIdle) {
+                if (engineSoundIdle)
+                {
 
                     engineSoundIdle.volume = Mathf.Lerp(engineRunning ? idleEngineSoundVolume : 0f, 0f, engineRPM / maxEngineRPM);
                     engineSoundIdle.pitch = pitchLevel;
@@ -2067,7 +2246,8 @@ public class RCC_CarControllerV4 : RCC_Core {
                 engineSoundLowOff.volume = lowRPM * (1f - volumeLevel);
                 engineSoundLowOff.pitch = pitchLevel;
 
-                if (engineSoundIdle) {
+                if (engineSoundIdle)
+                {
 
                     engineSoundIdle.volume = Mathf.Lerp(engineRunning ? idleEngineSoundVolume : 0f, 0f, engineRPM / maxEngineRPM);
                     engineSoundIdle.pitch = pitchLevel;
@@ -2086,49 +2266,56 @@ public class RCC_CarControllerV4 : RCC_Core {
                 break;
 
             case AudioType.Off:
-                if (engineSoundHigh) {
+                if (engineSoundHigh)
+                {
 
                     engineSoundHigh.volume = 0f;
                     engineSoundHigh.pitch = 1f;
 
                 }
 
-                if (engineSoundMed) {
+                if (engineSoundMed)
+                {
 
                     engineSoundMed.volume = 0f;
                     engineSoundMed.pitch = 1f;
 
                 }
 
-                if (engineSoundLow) {
+                if (engineSoundLow)
+                {
 
                     engineSoundLow.volume = 0f;
                     engineSoundLow.pitch = 1f;
 
                 }
 
-                if (engineSoundHighOff) {
+                if (engineSoundHighOff)
+                {
 
                     engineSoundHighOff.volume = 0f;
                     engineSoundHighOff.pitch = 1f;
 
                 }
 
-                if (engineSoundMedOff) {
+                if (engineSoundMedOff)
+                {
 
                     engineSoundMedOff.volume = 0f;
                     engineSoundMedOff.pitch = 1f;
 
                 }
 
-                if (engineSoundLowOff) {
+                if (engineSoundLowOff)
+                {
 
                     engineSoundLowOff.volume = 0f;
                     engineSoundLowOff.pitch = 1f;
 
                 }
 
-                if (engineSoundIdle) {
+                if (engineSoundIdle)
+                {
 
                     engineSoundIdle.volume = 0f;
                     engineSoundIdle.pitch = 1f;
@@ -2151,9 +2338,11 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Applies torque, brake, and steering to each wheel collider based on input, gear, etc.
     /// </summary>
-    private void Wheels() {
+    private void Wheels()
+    {
 
-        for (int i = 0; i < AllWheelColliders.Length; i++) {
+        for (int i = 0; i < AllWheelColliders.Length; i++)
+        {
 
             if (AllWheelColliders[i].canPower)
                 AllWheelColliders[i].ApplyMotorTorque((direction * AllWheelColliders[i].powerMultiplier * (1f - clutchInput) * throttleInput * (1f + boostInput) * (engineTorqueCurve.Evaluate(engineRPM) * gears[currentGear].maxRatio * finalRatio)) / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity));
@@ -2163,7 +2352,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
             bool appliedBrake = false;
 
-            if (!appliedBrake && handbrakeInput > .5f) {
+            if (!appliedBrake && handbrakeInput > .5f)
+            {
 
                 appliedBrake = true;
 
@@ -2172,7 +2362,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
             }
 
-            if (!appliedBrake && brakeInput >= .05f) {
+            if (!appliedBrake && brakeInput >= .05f)
+            {
 
                 appliedBrake = true;
 
@@ -2201,7 +2392,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Computes and applies anti-roll forces on the front and rear axles to reduce body roll.
     /// </summary>
-    private void AntiRollBars() {
+    private void AntiRollBars()
+    {
 
         #region Horizontal
         float travelFL = 1f;
@@ -2217,7 +2409,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
         float antiRollForceFrontHorizontal = (travelFL - travelFR) * antiRollFrontHorizontal;
 
-        if (FrontLeftWheelCollider.isActiveAndEnabled && FrontRightWheelCollider.isActiveAndEnabled) {
+        if (FrontLeftWheelCollider.isActiveAndEnabled && FrontRightWheelCollider.isActiveAndEnabled)
+        {
 
             if (groundedFL)
                 Rigid.AddForceAtPosition(FrontLeftWheelCollider.transform.up * -antiRollForceFrontHorizontal, FrontLeftWheelCollider.transform.position);
@@ -2239,7 +2432,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
         float antiRollForceRearHorizontal = (travelRL - travelRR) * antiRollRearHorizontal;
 
-        if (RearLeftWheelCollider.isActiveAndEnabled && RearRightWheelCollider.isActiveAndEnabled) {
+        if (RearLeftWheelCollider.isActiveAndEnabled && RearRightWheelCollider.isActiveAndEnabled)
+        {
 
             if (groundedRL)
                 Rigid.AddForceAtPosition(RearLeftWheelCollider.transform.up * -antiRollForceRearHorizontal, RearLeftWheelCollider.transform.position);
@@ -2251,7 +2445,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
         #region Vertical
         float antiRollForceFrontVertical = (travelFL - travelRL) * antiRollVertical;
-        if (FrontLeftWheelCollider.isActiveAndEnabled && RearLeftWheelCollider.isActiveAndEnabled) {
+        if (FrontLeftWheelCollider.isActiveAndEnabled && RearLeftWheelCollider.isActiveAndEnabled)
+        {
 
             if (groundedFL)
                 Rigid.AddForceAtPosition(FrontLeftWheelCollider.transform.up * -antiRollForceFrontVertical, FrontLeftWheelCollider.transform.position);
@@ -2261,7 +2456,8 @@ public class RCC_CarControllerV4 : RCC_Core {
         }
 
         float antiRollForceRearVertical = (travelFR - travelRR) * antiRollVertical;
-        if (FrontRightWheelCollider.isActiveAndEnabled && RearRightWheelCollider.isActiveAndEnabled) {
+        if (FrontRightWheelCollider.isActiveAndEnabled && RearRightWheelCollider.isActiveAndEnabled)
+        {
 
             if (groundedFR)
                 Rigid.AddForceAtPosition(FrontRightWheelCollider.transform.up * -antiRollForceRearVertical, FrontRightWheelCollider.transform.position);
@@ -2275,11 +2471,13 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Checks if at least one wheel is grounded. Sets isGrounded accordingly.
     /// </summary>
-    private void CheckGrounded() {
+    private void CheckGrounded()
+    {
 
         bool grounded = false;
 
-        for (int i = 0; i < AllWheelColliders.Length; i++) {
+        for (int i = 0; i < AllWheelColliders.Length; i++)
+        {
 
             if (AllWheelColliders[i].WheelCollider.isGrounded)
                 grounded = true;
@@ -2293,7 +2491,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// If engineRPM surpasses maxEngineRPM, forcibly cuts throttle to emulate a rev limiter effect.
     /// </summary>
-    private void RevLimiter() {
+    private void RevLimiter()
+    {
 
         if (engineRPM >= maxEngineRPM * .985f)
             cutGas = true;
@@ -2305,14 +2504,16 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Manages nitrous usage (NoS) if available. Consumes NoS while active and regenerates after waiting.
     /// </summary>
-    private void NOS() {
+    private void NOS()
+    {
 
         if (!NOSSound)
             NOSSound = NewAudioSource(Settings.audioMixer, gameObject, exhaustSoundPosition, "NOS Sound AudioSource", 5f, 10f, .5f, NOSClip, true, false, false);
         if (!blowSound)
             blowSound = NewAudioSource(Settings.audioMixer, gameObject, exhaustSoundPosition, "NOS Blow", 1f, 10f, .5f, null, false, false, false);
 
-        if (boostInput >= .8f && throttleInput >= .8f && NoS > 5) {
+        if (boostInput >= .8f && throttleInput >= .8f && NoS > 5)
+        {
 
             NoS -= NoSConsumption * Time.fixedDeltaTime;
             NoSRegenerateTime = 0f;
@@ -2320,14 +2521,17 @@ public class RCC_CarControllerV4 : RCC_Core {
             if (!NOSSound.isPlaying)
                 NOSSound.Play();
 
-        } else {
+        }
+        else
+        {
 
             if (NoS < 100 && NoSRegenerateTime >= 3)
                 NoS += (NoSConsumption / 1.5f) * Time.fixedDeltaTime;
 
             NoSRegenerateTime += Time.fixedDeltaTime;
 
-            if (NOSSound.isPlaying) {
+            if (NOSSound.isPlaying)
+            {
 
                 NOSSound.Stop();
                 blowSound.clip = BlowClip[UnityEngine.Random.Range(0, BlowClip.Length)];
@@ -2342,9 +2546,11 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Manages turbo spool logic if assigned, adjusting spool sound volume & pitch with usage.
     /// </summary>
-    private void Turbo() {
+    private void Turbo()
+    {
 
-        if (!turboSound) {
+        if (!turboSound)
+        {
 
             turboSound = NewAudioSource(Settings.audioMixer, gameObject, turboSoundPosition, "Turbo Sound AudioSource", .1f, .5f, 0, TurboClip, true, true, false);
             NewHighPassFilter(turboSound, 10000f, 10);
@@ -2353,11 +2559,14 @@ public class RCC_CarControllerV4 : RCC_Core {
 
         turboBoost = Mathf.Lerp(turboBoost, Mathf.Clamp(Mathf.Pow(throttleInput, 10) * 30f + Mathf.Pow(engineRPM / maxEngineRPM, 10) * 30f, 0f, 30f), Time.fixedDeltaTime * 10f);
 
-        if (turboBoost >= 25f) {
+        if (turboBoost >= 25f)
+        {
 
-            if (turboBoost < (turboSound.volume * 30f)) {
+            if (turboBoost < (turboSound.volume * 30f))
+            {
 
-                if (!blowSound.isPlaying) {
+                if (!blowSound.isPlaying)
+                {
 
                     blowSound.clip = Settings.blowoutClip[UnityEngine.Random.Range(0, Settings.blowoutClip.Length)];
                     blowSound.Play();
@@ -2376,7 +2585,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// If fuel consumption is enabled, reduce the fuelTank over time as engine runs.
     /// </summary>
-    private void Fuel() {
+    private void Fuel()
+    {
 
         fuelTank -= ((engineRPM / 10000f) * fuelConsumptionRate) * Time.fixedDeltaTime;
         fuelTank = Mathf.Clamp(fuelTank, 0f, fuelTankCapacity);
@@ -2390,7 +2600,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// Accumulates engine heat with RPM, and cools it past a threshold. 
     /// Used for advanced temperature mechanics.
     /// </summary>
-    private void EngineHeat() {
+    private void EngineHeat()
+    {
 
         engineHeat += ((engineRPM / 10000f) * engineHeatRate) * Time.fixedDeltaTime;
 
@@ -2405,18 +2616,22 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// If speed is low and vehicle is upside down for a while, automatically resets orientation.
     /// </summary>
-    private void CheckReset() {
+    private void CheckReset()
+    {
 
         if (!Settings.autoReset)
             return;
 
-        if (speed < 5 && !Rigid.isKinematic) {
+        if (speed < 5 && !Rigid.isKinematic)
+        {
 
-            if (transform.eulerAngles.z < 300 && transform.eulerAngles.z > 60) {
+            if (transform.eulerAngles.z < 300 && transform.eulerAngles.z > 60)
+            {
 
                 resetTime += Time.deltaTime;
 
-                if (resetTime > 3) {
+                if (resetTime > 3)
+                {
 
                     transform.SetPositionAndRotation(new Vector3(transform.position.x, transform.position.y + 3, transform.position.z), Quaternion.Euler(0f, transform.eulerAngles.y, 0f));
                     resetTime = 0f;
@@ -2432,14 +2647,17 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Provides a steering limiter or counter-steering logic.
     /// </summary>
-    private void SteerHelper() {
+    private void SteerHelper()
+    {
 
         if (!isGrounded)
             return;
 
-        if (!steeringDirection || !velocityDirection) {
+        if (!steeringDirection || !velocityDirection)
+        {
 
-            if (!steeringDirection) {
+            if (!steeringDirection)
+            {
                 GameObject steeringDirectionGO = new GameObject("Steering Direction");
                 steeringDirectionGO.transform.SetParent(transform, false);
                 steeringDirection = steeringDirectionGO.transform;
@@ -2448,7 +2666,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
             }
 
-            if (!velocityDirection) {
+            if (!velocityDirection)
+            {
 
                 GameObject velocityDirectionGO = new GameObject("Velocity Direction");
                 velocityDirectionGO.transform.SetParent(transform, false);
@@ -2462,7 +2681,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
         }
 
-        for (int i = 0; i < AllWheelColliders.Length; i++) {
+        for (int i = 0; i < AllWheelColliders.Length; i++)
+        {
 
             if (AllWheelColliders[i].wheelHit.point == Vector3.zero)
                 return;
@@ -2484,7 +2704,8 @@ public class RCC_CarControllerV4 : RCC_Core {
         float angle2 = Quaternion.Angle(velocityDirection.localRotation, steeringDirection.localRotation) * (normalizer);
         Rigid.AddRelativeTorque(Vector3.up * ((angle2 * (Mathf.Clamp(transform.InverseTransformDirection(Rigid.linearVelocity).z, -10f, 10f) / 1000f)) * steerHelperAngularVelStrength), ForceMode.VelocityChange);
 
-        if (Mathf.Abs(oldRotation - transform.eulerAngles.y) < 10f) {
+        if (Mathf.Abs(oldRotation - transform.eulerAngles.y) < 10f)
+        {
 
             float turnadjust = (transform.eulerAngles.y - oldRotation) * (steerHelperLinearVelStrength / 2f);
             Quaternion velRotation = Quaternion.AngleAxis(turnadjust, Vector3.up);
@@ -2500,7 +2721,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// Slightly adjusts side slip stiffness on the front wheels based on yaw velocity. 
     /// Helps reduce over-rotation/spin at moderate slip angles.
     /// </summary>
-    private void TractionHelper() {
+    private void TractionHelper()
+    {
 
         if (!isGrounded)
             return;
@@ -2527,7 +2749,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Dynamically adjusts <c>Rigid.angularDrag</c> based on vehicle speed to mitigate spin.
     /// </summary>
-    private void AngularDragHelper() {
+    private void AngularDragHelper()
+    {
 
         Rigid.angularDamping = Mathf.Lerp(0f, 10f, (speed * angularDragHelperStrength) / 1000f);
 
@@ -2536,28 +2759,33 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// If UseAutomaticClutch is true, smoothly sets clutch input in first gear or while shifting.
     /// </summary>
-    private void AutomaticClutch() {
+    private void AutomaticClutch()
+    {
 
         if (!automaticClutch)
             return;
 
         float tractionRPM = 0;
 
-        for (int i = 0; i < AllWheelColliders.Length; i++) {
+        for (int i = 0; i < AllWheelColliders.Length; i++)
+        {
 
             if (AllWheelColliders[i].canPower)
                 tractionRPM += Mathf.Abs(AllWheelColliders[i].WheelCollider.rpm);
 
         }
 
-        if (currentGear == 0) {
+        if (currentGear == 0)
+        {
 
             if (launched >= .25f)
                 clutchInput = Mathf.Lerp(clutchInput, (Mathf.Lerp(1f, (Mathf.Lerp(clutchInertia, 0f, (tractionRPM / Mathf.Clamp(poweredWheels, 1, Mathf.Infinity)) / gears[0].targetSpeedForNextGear)), Mathf.Abs(throttleInput))), Time.fixedDeltaTime * 20f);
             else
                 clutchInput = Mathf.Lerp(clutchInput, 1f / speed, Time.fixedDeltaTime * 20f);
 
-        } else {
+        }
+        else
+        {
 
             if (changingGear)
                 clutchInput = Mathf.Lerp(clutchInput, 1, Time.fixedDeltaTime * 20f);
@@ -2580,11 +2808,14 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// Automatically manages shifting gears up/down if in AutomaticGear mode. 
     /// Also manages reversing sound if direction is -1.
     /// </summary>
-    private void AutomaticGearbox() {
+    private void AutomaticGearbox()
+    {
 
-        if (currentGear < gears.Length - 1 && !changingGear) {
+        if (currentGear < gears.Length - 1 && !changingGear)
+        {
 
-            if (direction == 1 && speed >= gears[currentGear].targetSpeedForNextGear && engineRPM >= gearShiftUpRPM) {
+            if (direction == 1 && speed >= gears[currentGear].targetSpeedForNextGear && engineRPM >= gearShiftUpRPM)
+            {
 
                 if (!semiAutomaticGear)
                     StartCoroutine(ChangeGear(currentGear + 1));
@@ -2595,14 +2826,16 @@ public class RCC_CarControllerV4 : RCC_Core {
 
         }
 
-        if (currentGear > 0 && !changingGear) {
+        if (currentGear > 0 && !changingGear)
+        {
 
             if (direction != -1 && speed < gears[currentGear - 1].targetSpeedForNextGear && engineRPM <= gearShiftDownRPM)
                 StartCoroutine(ChangeGear(currentGear - 1));
 
         }
 
-        if (direction == -1) {
+        if (direction == -1)
+        {
 
             if (!reversingSound.isPlaying)
                 reversingSound.Play();
@@ -2610,7 +2843,9 @@ public class RCC_CarControllerV4 : RCC_Core {
             reversingSound.volume = Mathf.Lerp(0f, 1f, speed / gears[0].maxSpeed);
             reversingSound.pitch = reversingSound.volume;
 
-        } else {
+        }
+        else
+        {
 
             if (reversingSound.isPlaying)
                 reversingSound.Stop();
@@ -2626,14 +2861,16 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// Executes the gear change process with a short delay. 
     /// Cuts gas, optionally plays gear shift sound, and sets currentGear to the new value.
     /// </summary>
-    public IEnumerator ChangeGear(int gear) {
+    public IEnumerator ChangeGear(int gear)
+    {
 
         changingGear = true;
 
         if (Settings.useTelemetry)
             print("Shifted to: " + (gear).ToString());
 
-        if (GearShiftingClips.Length > 0) {
+        if (GearShiftingClips.Length > 0)
+        {
 
             gearShiftingSound = NewAudioSource(Settings.audioMixer, gameObject, gearSoundPosition, "Gear Shifting AudioSource", 1f, 5f, Settings.maxGearShiftingSoundVolume, GearShiftingClips[UnityEngine.Random.Range(0, GearShiftingClips.Length)], false, true, true);
 
@@ -2644,7 +2881,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
         yield return new WaitForSeconds(gearShiftingDelay);
 
-        if (gear == -1) {
+        if (gear == -1)
+        {
 
             currentGear = 0;
 
@@ -2653,7 +2891,9 @@ public class RCC_CarControllerV4 : RCC_Core {
             else
                 direction = 0;
 
-        } else {
+        }
+        else
+        {
 
             currentGear = gear;
             if (!NGear)
@@ -2671,9 +2911,11 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// Manually shifts up one gear if possible. 
     /// Called from external input or UI.
     /// </summary>
-    public void GearShiftUp() {
+    public void GearShiftUp()
+    {
 
-        if (currentGear < gears.Length - 1 && !changingGear) {
+        if (currentGear < gears.Length - 1 && !changingGear)
+        {
 
             if (direction != -1)
                 StartCoroutine(ChangeGear(currentGear + 1));
@@ -2688,7 +2930,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// Manually shifts to the specified gear index. 
     /// Negative gear = reverse, -2 = neutral.
     /// </summary>
-    public void GearShiftTo(int gear) {
+    public void GearShiftTo(int gear)
+    {
 
         if (gear < -1 || gear >= gears.Length)
             return;
@@ -2702,7 +2945,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Manually shifts down one gear if possible.
     /// </summary>
-    public void GearShiftDown() {
+    public void GearShiftDown()
+    {
 
         if (currentGear >= 0)
             StartCoroutine(ChangeGear(currentGear - 1));
@@ -2711,7 +2955,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
     #region Collisions
 
-    private void OnCollisionEnter(Collision collision) {
+    private void OnCollisionEnter(Collision collision)
+    {
 
         if (collision.contactCount < 1)
             return;
@@ -2722,9 +2967,11 @@ public class RCC_CarControllerV4 : RCC_Core {
         if (OnRCCPlayerCollision != null && this == RCCSceneManager.activePlayerVehicle)
             OnRCCPlayerCollision(this, collision);
 
-        if (((1 << collision.gameObject.layer) & damage.damageFilter) != 0) {
+        if (((1 << collision.gameObject.layer) & damage.damageFilter) != 0)
+        {
 
-            if (useDamage) {
+            if (useDamage)
+            {
 
                 if (!damage.carController)
                     damage.Initialize(this);
@@ -2733,18 +2980,22 @@ public class RCC_CarControllerV4 : RCC_Core {
 
             }
 
-            if (useCollisionAudio) {
+            if (useCollisionAudio)
+            {
 
                 if (CrashClips.Length > 0)
                     crashSound = NewAudioSource(Settings.audioMixer, gameObject, "Crash Sound AudioSource", 5f, 20f, Settings.maxCrashSoundVolume * (collision.impulse.magnitude / 10000f), CrashClips[UnityEngine.Random.Range(0, CrashClips.Length)], false, true, true);
 
             }
 
-            if (useCollisionParticles) {
+            if (useCollisionParticles)
+            {
 
-                if (contactSparkle && contactSparkeList.Count < 1) {
+                if (contactSparkle && contactSparkeList.Count < 1)
+                {
 
-                    for (int i = 0; i < maximumContactSparkle; i++) {
+                    for (int i = 0; i < maximumContactSparkle; i++)
+                    {
 
                         GameObject sparks = Instantiate(contactSparkle, transform.position, Quaternion.identity);
                         sparks.transform.SetParent(allContactParticles.transform);
@@ -2756,9 +3007,11 @@ public class RCC_CarControllerV4 : RCC_Core {
 
                 }
 
-                for (int i = 0; i < contactSparkeList.Count; i++) {
+                for (int i = 0; i < contactSparkeList.Count; i++)
+                {
 
-                    if (!contactSparkeList[i].isPlaying) {
+                    if (!contactSparkeList[i].isPlaying)
+                    {
 
                         contactSparkeList[i].transform.position = collision.GetContact(0).point;
                         ParticleSystem.EmissionModule em = contactSparkeList[i].emission;
@@ -2777,13 +3030,17 @@ public class RCC_CarControllerV4 : RCC_Core {
 
     }
 
-    private void OnCollisionStay(Collision collision) {
+    private void OnCollisionStay(Collision collision)
+    {
 
-        if (collision.contactCount < 1 || collision.relativeVelocity.magnitude < 2f) {
+        if (collision.contactCount < 1 || collision.relativeVelocity.magnitude < 2f)
+        {
 
-            if (scratchSparkeList != null) {
+            if (scratchSparkeList != null)
+            {
 
-                for (int i = 0; i < scratchSparkeList.Count; i++) {
+                for (int i = 0; i < scratchSparkeList.Count; i++)
+                {
 
                     ParticleSystem.EmissionModule em = scratchSparkeList[i].emission;
                     em.enabled = false;
@@ -2796,13 +3053,17 @@ public class RCC_CarControllerV4 : RCC_Core {
 
         }
 
-        if (((1 << collision.gameObject.layer) & damage.damageFilter) != 0) {
+        if (((1 << collision.gameObject.layer) & damage.damageFilter) != 0)
+        {
 
-            if (useCollisionParticles) {
+            if (useCollisionParticles)
+            {
 
-                if (scratchSparkle && scratchSparkeList.Count < 1) {
+                if (scratchSparkle && scratchSparkeList.Count < 1)
+                {
 
-                    for (int i = 0; i < maximumContactSparkle; i++) {
+                    for (int i = 0; i < maximumContactSparkle; i++)
+                    {
 
                         GameObject sparks = Instantiate(scratchSparkle, transform.position, Quaternion.identity);
                         sparks.transform.SetParent(allContactParticles.transform);
@@ -2818,11 +3079,13 @@ public class RCC_CarControllerV4 : RCC_Core {
                 collision.GetContacts(contacts);
 
                 int ind = -1;
-                foreach (ContactPoint cp in contacts) {
+                foreach (ContactPoint cp in contacts)
+                {
 
                     ind++;
 
-                    if (ind < scratchSparkeList.Count && !scratchSparkeList[ind].isPlaying) {
+                    if (ind < scratchSparkeList.Count && !scratchSparkeList[ind].isPlaying)
+                    {
 
                         scratchSparkeList[ind].transform.position = cp.point;
                         ParticleSystem.EmissionModule em = scratchSparkeList[ind].emission;
@@ -2840,9 +3103,11 @@ public class RCC_CarControllerV4 : RCC_Core {
 
     }
 
-    private void OnCollisionExit(Collision collision) {
+    private void OnCollisionExit(Collision collision)
+    {
 
-        for (int i = 0; i < scratchSparkeList.Count; i++) {
+        for (int i = 0; i < scratchSparkeList.Count; i++)
+        {
 
             ParticleSystem.EmissionModule em = scratchSparkeList[i].emission;
             em.enabled = false;
@@ -2858,7 +3123,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// Allows the vehicle to spin the wheels and blow smoke for previewing or burnout show.
     /// If state = true, sets canControl to false, Rigid kinematic, and permanentGas = true.
     /// </summary>
-    public void PreviewSmokeParticle(bool state) {
+    public void PreviewSmokeParticle(bool state)
+    {
 
         canControl = state;
         permanentGas = state;
@@ -2869,7 +3135,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Detaches the truck trailer if one is attached to this vehicle.
     /// </summary>
-    public void DetachTrailer() {
+    public void DetachTrailer()
+    {
 
         if (!attachedTrailer)
             return;
@@ -2878,7 +3145,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
     }
 
-    private void OnDestroy() {
+    private void OnDestroy()
+    {
 
         if (OnRCCPlayerDestroyed != null)
             OnRCCPlayerDestroyed(this);
@@ -2889,7 +3157,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// Enables or disables player control for this vehicle.
     /// </summary>
     /// <param name="state">If true, can control the vehicle with standard inputs.</param>
-    public void SetCanControl(bool state) {
+    public void SetCanControl(bool state)
+    {
 
         canControl = state;
 
@@ -2898,7 +3167,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Toggles external AI control. If true, user input is ignored in favor of script-driven input.
     /// </summary>
-    public void SetExternalControl(bool state) {
+    public void SetExternalControl(bool state)
+    {
 
         externalController = state;
 
@@ -2907,7 +3177,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Starts or kills the engine based on the provided boolean.
     /// </summary>
-    public void SetEngine(bool state) {
+    public void SetEngine(bool state)
+    {
 
         if (state)
             StartEngine();
@@ -2919,7 +3190,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Repairs damage on this vehicle immediately, resetting deformation if applicable.
     /// </summary>
-    public void Repair() {
+    public void Repair()
+    {
 
         damage.repairNow = true;
 
@@ -2927,7 +3199,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
     #region InputManager Events
 
-    private void RCC_InputManager_OnTrailerDetach() {
+    private void RCC_InputManager_OnTrailerDetach()
+    {
 
         if (!canControl || externalController)
             return;
@@ -2936,7 +3209,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
     }
 
-    private void RCC_InputManager_OnGearShiftDown() {
+    private void RCC_InputManager_OnGearShiftDown()
+    {
 
         if (!canControl || externalController)
             return;
@@ -2945,7 +3219,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
     }
 
-    private void RCC_InputManager_OnGearShiftUp() {
+    private void RCC_InputManager_OnGearShiftUp()
+    {
 
         if (!canControl || externalController)
             return;
@@ -2954,7 +3229,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
     }
 
-    private void RCC_InputManager_OnNGear(bool state) {
+    private void RCC_InputManager_OnNGear(bool state)
+    {
 
         if (!canControl || externalController)
             return;
@@ -2963,7 +3239,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
     }
 
-    private void RCC_InputManager_OnIndicatorHazard() {
+    private void RCC_InputManager_OnIndicatorHazard()
+    {
 
         if (!canControl || externalController)
             return;
@@ -2975,7 +3252,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
     }
 
-    private void RCC_InputManager_OnIndicatorRight() {
+    private void RCC_InputManager_OnIndicatorRight()
+    {
 
         if (!canControl || externalController)
             return;
@@ -2987,7 +3265,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
     }
 
-    private void RCC_InputManager_OnIndicatorLeft() {
+    private void RCC_InputManager_OnIndicatorLeft()
+    {
 
         if (!canControl || externalController)
             return;
@@ -2999,7 +3278,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
     }
 
-    private void RCC_InputManager_OnHighBeamHeadlights() {
+    private void RCC_InputManager_OnHighBeamHeadlights()
+    {
 
         if (!canControl || externalController)
             return;
@@ -3008,7 +3288,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
     }
 
-    private void RCC_InputManager_OnLowBeamHeadlights() {
+    private void RCC_InputManager_OnLowBeamHeadlights()
+    {
 
         if (!canControl || externalController)
             return;
@@ -3017,7 +3298,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
     }
 
-    private void RCC_InputManager_OnInteriorLights() {
+    private void RCC_InputManager_OnInteriorLights()
+    {
 
         if (!canControl || externalController)
             return;
@@ -3026,7 +3308,8 @@ public class RCC_CarControllerV4 : RCC_Core {
 
     }
 
-    private void RCC_InputManager_OnStartStopEngine() {
+    private void RCC_InputManager_OnStartStopEngine()
+    {
 
         if (!canControl || externalController)
             return;
@@ -3043,7 +3326,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// Directly overrides all vehicle inputs with those provided in newInputs.
     /// The vehicle will ignore normal player input until <c>DisableOverrideInputs</c> is called.
     /// </summary>
-    public void OverrideInputs(RCC_Inputs newInputs) {
+    public void OverrideInputs(RCC_Inputs newInputs)
+    {
 
         overrideInputs = true;
         inputs = newInputs;
@@ -3053,7 +3337,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Overloads <c>OverrideInputs</c> with an additional flag to toggle external controller mode.
     /// </summary>
-    public void OverrideInputs(RCC_Inputs newInputs, bool enableExternalController) {
+    public void OverrideInputs(RCC_Inputs newInputs, bool enableExternalController)
+    {
 
         overrideInputs = true;
         inputs = newInputs;
@@ -3064,7 +3349,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Disables the manual input overrides, allowing the vehicle to receive normal input again.
     /// </summary>
-    public void DisableOverrideInputs() {
+    public void DisableOverrideInputs()
+    {
 
         overrideInputs = false;
 
@@ -3073,7 +3359,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Disables both overrideInputs and optionally the externalController.
     /// </summary>
-    public void DisableOverrideInputs(bool disableExternalController) {
+    public void DisableOverrideInputs(bool disableExternalController)
+    {
 
         overrideInputs = false;
         externalController = !disableExternalController;
@@ -3085,7 +3372,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// Moves the COM object to the approximate center of the vehicle’s bounding box (for quick setup).
     /// </summary>
-    public void CheckCOMPosition() {
+    public void CheckCOMPosition()
+    {
 
         if (!COM)
             return;
@@ -3101,21 +3389,25 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// <summary>
     /// If using URP lens flares, this replaces standard lens flare components with SRP-based lens flares in any child RCC_Light.
     /// </summary>
-    public bool CheckLensflares_URP() {
+    public bool CheckLensflares_URP()
+    {
 
         RCC_Light[] allLights = GetComponentsInChildren<RCC_Light>(true);
         bool proccessed = false;
 
-        for (int i = 0; i < allLights.Length; i++) {
+        for (int i = 0; i < allLights.Length; i++)
+        {
 
-            if (allLights[i].TryGetComponent(out LensFlare foundFlare)) {
+            if (allLights[i].TryGetComponent(out LensFlare foundFlare))
+            {
                 proccessed = true;
                 DestroyImmediate(foundFlare);
                 allLights[i].lensFlare = null;
 
             }
 
-            if (!allLights[i].TryGetComponent(out LensFlareComponentSRP foundURPFlare)) {
+            if (!allLights[i].TryGetComponent(out LensFlareComponentSRP foundURPFlare))
+            {
 
                 proccessed = true;
                 foundURPFlare = allLights[i].gameObject.AddComponent<LensFlareComponentSRP>();
@@ -3130,13 +3422,14 @@ public class RCC_CarControllerV4 : RCC_Core {
         }
 
         if (proccessed)
-            Debug.Log("Old lensflare components have been found in the " + transform.name + ", replacing them with SRP lensflares.");
+            UnityEngine.Debug.Log("Old lensflare components have been found in the " + transform.name + ", replacing them with SRP lensflares.");
 
         return proccessed;
 
     }
 
-    private bool IsURP() {
+    private bool IsURP()
+    {
 
         RenderPipelineAsset currentPipeline = GraphicsSettings.currentRenderPipeline;
 
@@ -3147,7 +3440,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     }
 #endif
 
-    private void OnDisable() {
+    private void OnDisable()
+    {
 
         // Unsubscribe from behavior change events.
         RCC_SceneManager.OnBehaviorChanged -= CheckBehavior;
@@ -3171,7 +3465,8 @@ public class RCC_CarControllerV4 : RCC_Core {
     /// Resets core settings in the editor, creating a default Rigidbody and COM if missing. 
     /// Also sets typical values from RCC_InitialSettings for quick setup.
     /// </summary>
-    private void Reset() {
+    private void Reset()
+    {
 
         Rigidbody rigid = GetComponent<Rigidbody>();
 
@@ -3200,7 +3495,8 @@ public class RCC_CarControllerV4 : RCC_Core {
         ReCreateEngineTorqueCurve();
         steerAngleCurve = new AnimationCurve(new Keyframe(0f, 40f, 0f, -.3f), new Keyframe(120f, 10f, -.115f, -.1f), new Keyframe(200f, 7f));
 
-        if (Settings.RCCLayer != "") {
+        if (Settings.RCCLayer != "")
+        {
 
             foreach (Transform item in GetComponentsInChildren<Transform>(true))
                 item.gameObject.layer = LayerMask.NameToLayer(Settings.RCCLayer);
@@ -3209,4 +3505,92 @@ public class RCC_CarControllerV4 : RCC_Core {
 
     }
 
+    private IEnumerator ResumeAfterDelay()
+    {
+        isStop = true;
+        Rigid.linearVelocity = Vector3.zero;
+        Rigid.angularVelocity = Vector3.zero;
+
+        yield return new WaitForSeconds(5f);
+
+        // Очищаем входы
+        throttleInput = 0f;
+        brakeInput = 0f;
+        steerInput = 0f;
+        handbrakeInput = 0f;
+
+        // Сбрасываем тормоза
+        for (int i = 0; i < AllWheelColliders.Length; i++)
+        {
+            if (AllWheelColliders[i] != null && AllWheelColliders[i].WheelCollider != null)
+            {
+                AllWheelColliders[i].WheelCollider.brakeTorque = 0f;
+            }
+        }
+
+        yield return new WaitForFixedUpdate();
+
+        // ВАЖНО: устанавливаем ЭТИ значения
+        clutchInput = 0f;      // Отпускаем сцепление
+        launched = 0.5f;       // Имитируем что машина уже тронулась
+
+        yield return new WaitForFixedUpdate();
+
+        isStop = false;
+
+        // Даем импульс для старта
+        Rigid.AddForce(transform.forward * 100f, ForceMode.Impulse);
+
+        UnityEngine.Debug.Log($"Resume FINAL: clutch={clutchInput}, launched={launched}");
+    }
+
+
+    void OnTriggerExit(Collider other)
+    {
+        if (!isNPC) return; // Только для NPC
+
+        if (other.CompareTag("Straight"))
+        {
+            UnityEngine.Debug.Log("Trigger: Straight");
+            StartCoroutine(ResumeAfterDelay());
+        }
+
+        if (other.CompareTag("Right"))
+        {
+            UnityEngine.Debug.Log("Trigger: Right");
+            indicatorsOn = IndicatorsOn.Right;
+            ValueCar = "Right";
+            StartCoroutine(ResumeAfterDelay());
+        }
+
+        if (other.CompareTag("RightEND"))
+        {
+            UnityEngine.Debug.Log("Trigger: RightEND");
+            indicatorsOn = IndicatorsOn.Off;
+            ValueCar = "Straight";
+        }
+
+        if (other.CompareTag("Left"))
+        {
+            UnityEngine.Debug.Log("Trigger: Left");
+            indicatorsOn = IndicatorsOn.Left;
+            ValueCar = "Left";
+            StartCoroutine(ResumeAfterDelay());
+        }
+
+        if (other.CompareTag("LeftMID"))
+        {
+            UnityEngine.Debug.Log("Trigger: LeftMID");
+            ValueCar = "LeftMID";
+        }
+
+        if (other.CompareTag("LeftEND"))
+        {
+            UnityEngine.Debug.Log("Trigger: LeftEND");
+            indicatorsOn = IndicatorsOn.Off;
+            ValueCar = "Straight";
+        }
+    }
+
 }
+

@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - Car
+  - NPC
+  - Right
+  - Straight
+  - Left
   layers:
   - Default
   - TransparentFX
