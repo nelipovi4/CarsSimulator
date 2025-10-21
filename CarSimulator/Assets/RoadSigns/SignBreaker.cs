@@ -10,7 +10,7 @@ public class SignBreaker : MonoBehaviour
         {
             float impact = collision.relativeVelocity.magnitude;
 
-            if (impact > 10f) // порог силы удара
+            if (impact > 8f) // порог силы удара
             {
                 // Удаляем соединение
                 FixedJoint joint = sign.GetComponent<FixedJoint>();
