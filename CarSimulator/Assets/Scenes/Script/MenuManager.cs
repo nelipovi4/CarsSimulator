@@ -22,7 +22,4 @@ public class MenuManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel("Main_Scene");
     }
 
-
-
-
 }

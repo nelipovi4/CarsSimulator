@@ -2,18 +2,19 @@
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class MainMenuController : MonoBehaviour
+public class MainMenuManager : MonoBehaviour
 {
     [Header("Сцены")]
-    [SerializeField] private int singlePlayerSceneIndex = 3;
-    [SerializeField] private int meltiPlayerSceneIndex = 1;
+    [SerializeField] private int singlePlayerSceneIndex = 1;
+    [SerializeField] private int windowLoadingSceneIndex = 4;
+    [SerializeField] private int meltiPlayerSceneIndex = 2;
 
     [Header("Панели")]
     [SerializeField] private GameObject mainMenuButtons;       // объект Buttons
     [SerializeField] private GameObject aboutAuthorPanel;      // панель "Об авторе"
 
-    [Header("ТВОЙ BLUR IMAGE С ШЕЙДЕРОМ")]
-    [SerializeField] private GameObject blurImage;             // ← сюда перетащи свой Image с шейдером blur
+    [Header("BLUR IMAGE С ШЕЙДЕРОМ")]
+    [SerializeField] private GameObject blurImage;             // Image с шейдером blur
 
     private Button[] menuButtons; // храним все кнопки главного меню
 
@@ -76,7 +77,7 @@ public class MainMenuController : MonoBehaviour
 
     public void PlaySinglePlayer()
     {
-        SceneManager.LoadScene(singlePlayerSceneIndex);
+        SceneManager.LoadScene(windowLoadingSceneIndex);
     }
 
     public void PlayMultiplayer()

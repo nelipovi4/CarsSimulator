@@ -4,11 +4,8 @@
 TagManager:
   serializedVersion: 3
   tags:
+  - TrafficLight
   - Car
-  - NPC
-  - Right
-  - Straight
-  - Left
   layers:
   - Default
   - TransparentFX
@@ -16,18 +13,18 @@ TagManager:
   - 
   - Water
   - UI
+  - road
+  - traffic
+  - bu
+  - obst
+  - player
   - 
   - 
-  - RCC_Vehicle
-  - RCC_WheelCollider
-  - RCC_DetachablePart
-  - RCC_Prop
-  - Road
-  - Traffic
-  - Buildinga
-  - Obstacle
-  - Player
-  - Post_Proccesing
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 

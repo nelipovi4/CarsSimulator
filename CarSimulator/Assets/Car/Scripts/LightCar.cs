@@ -1,8 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Photon.Pun;
 
-public class LightCar : MonoBehaviourPun, IPunObservable
+public class LightCar : MonoBehaviour
 {
     public GameObject Forward;
     public GameObject Back;
@@ -13,7 +12,7 @@ public class LightCar : MonoBehaviourPun, IPunObservable
     private bool isRightSignalOn = false;
     private bool isLeftSignalOn = false;
 
-    // Сетевые состояния
+    // Локальные состояния
     private bool forwardOn = false;
     private bool backOn = false;
     private bool rightBlink = false;
@@ -26,14 +25,11 @@ public class LightCar : MonoBehaviourPun, IPunObservable
         Turnsignal_R.SetActive(false);
         Turnsignal_L.SetActive(false);
 
-        if (photonView.IsMine)
-            kb = Keyboard.current;
+        kb = Keyboard.current;
     }
 
     void Update()
     {
-        if (!photonView.IsMine) return;
-
         // Передний свет
         if (kb.hKey.wasPressedThisFrame)
             forwardOn = true;
@@ -113,24 +109,5 @@ public class LightCar : MonoBehaviourPun, IPunObservable
     void BlinkLeftSignal()
     {
         Turnsignal_L.SetActive(!Turnsignal_L.activeSelf);
-    }
-
-    // Синхронизация состояний
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.IsWriting)
-        {
-            stream.SendNext(forwardOn);
-            stream.SendNext(backOn);
-            stream.SendNext(Turnsignal_R.activeSelf);
-            stream.SendNext(Turnsignal_L.activeSelf);
-        }
-        else
-        {
-            forwardOn = (bool)stream.ReceiveNext();
-            backOn = (bool)stream.ReceiveNext();
-            Turnsignal_R.SetActive((bool)stream.ReceiveNext());
-            Turnsignal_L.SetActive((bool)stream.ReceiveNext());
-        }
     }
 }

@@ -286,7 +286,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 111901977}
-  - component: {fileID: 111901976}
+  - component: {fileID: 111901978}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -294,23 +294,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &111901976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 111901975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6df82d575811364498d4122f5347a61b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ManagerButton
-  singlePlayerSceneIndex: 2
-  meltiPlayerSceneIndex: 1
-  mainMenuButtons: {fileID: 691618043}
-  aboutAuthorPanel: {fileID: 407901558}
-  blurImage: {fileID: 770738577}
 --- !u!4 &111901977
 Transform:
   m_ObjectHideFlags: 0
@@ -326,6 +309,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &111901978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111901975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: becc304583b63034a87ae77bed2f6c9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MainMenuManager
+  singlePlayerSceneIndex: 1
+  windowLoadingSceneIndex: 4
+  meltiPlayerSceneIndex: 2
+  mainMenuButtons: {fileID: 691618043}
+  aboutAuthorPanel: {fileID: 407901558}
+  blurImage: {fileID: 770738577}
 --- !u!1 &234376821
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,8 +809,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 111901976}
-        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+      - m_Target: {fileID: 111901978}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -1346,7 +1347,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 111901976}
+      - m_Target: {fileID: 111901975}
         m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
         m_MethodName: 
         m_Mode: 1
@@ -1601,8 +1602,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 111901976}
-        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+      - m_Target: {fileID: 111901978}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
         m_MethodName: PlaySinglePlayer
         m_Mode: 1
         m_Arguments:
@@ -2167,8 +2168,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 111901976}
-        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+      - m_Target: {fileID: 111901978}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
         m_MethodName: PlayMultiplayer
         m_Mode: 1
         m_Arguments:
@@ -2345,8 +2346,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 111901976}
-        m_TargetAssemblyTypeName: MainMenuController, Assembly-CSharp
+      - m_Target: {fileID: 111901978}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
         m_MethodName: OpenAboutAuthor
         m_Mode: 1
         m_Arguments:
