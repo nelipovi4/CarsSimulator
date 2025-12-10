@@ -124,7 +124,7 @@ MonoBehaviour:
     active: 01
   intersectionSave:
     showAll: 0
-    showExit: 1
+    showExit: 0
     showPedestrians: 1
     showDirection: 1
     priorityColor: {r: 0, g: 1, b: 0, a: 1}

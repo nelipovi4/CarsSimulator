@@ -39,6 +39,19 @@ MonoBehaviour:
   - DestroySpaceship
   - Fire
   - RespawnSpaceship
+  - RPC_PlayBrakeSound
+  - RPC_SetBack
+  - RPC_SetBrakeLights
+  - RPC_SetEnginePitch
+  - RPC_SetEngineSoundPitch
+  - RPC_SetForward
+  - RPC_SetLeftIndicator
+  - RPC_SetRightIndicator
+  - RPC_SetTireScreech
+  - RPC_StartLeftSignal
+  - RPC_StartRightSignal
+  - RPC_StopLeftSignal
+  - RPC_StopRightSignal
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

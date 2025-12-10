@@ -1,29 +1,33 @@
-using UnityEngine;
+п»їusing UnityEngine;
 
 public class SignBreaker : MonoBehaviour
 {
-    public GameObject sign; // ссылка на объект знака
+    [Header("РЎСЃС‹Р»РєР° РЅР° СЃР°Рј Р·РЅР°Рє (РЅРµ РЅР° РѕСЃРЅРѕРІР°РЅРёРµ!)")]
+    public GameObject sign;
 
-    void OnCollisionEnter(Collision collision)
+    [Header("РЎРёР»Р° РѕС‚Р±СЂР°СЃС‹РІР°РЅРёСЏ")]
+    public float forceMultiplier = 1f;
+
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Car"))
+        if (!collision.gameObject.CompareTag("Car")) return;
+
+        if (collision.relativeVelocity.magnitude > 8f)
         {
-            float impact = collision.relativeVelocity.magnitude;
+            // Р›РѕРјР°РµРј СЃРѕРµРґРёРЅРµРЅРёРµ
+            var joint = sign.GetComponent<FixedJoint>();
+            if (joint != null) Destroy(joint);
 
-            if (impact > 8f) // порог силы удара
+            // Р’РєР»СЋС‡Р°РµРј С„РёР·РёРєСѓ Р·РЅР°РєР°
+            var rb = sign.GetComponent<Rigidbody>();
+            if (rb != null)
             {
-                // Удаляем соединение
-                FixedJoint joint = sign.GetComponent<FixedJoint>();
-                if (joint != null) Destroy(joint);
-
-                // Включаем физику у знака
-                Rigidbody rb = sign.GetComponent<Rigidbody>();
                 rb.isKinematic = false;
-                rb.AddForce(collision.relativeVelocity * 100f, ForceMode.Impulse);
-
-                // Удаляем основание
-                Destroy(gameObject);
+                rb.AddForce(collision.relativeVelocity * forceMultiplier, ForceMode.Impulse);
             }
+
+            // РЈРЅРёС‡С‚РѕР¶Р°РµРј РѕСЃРЅРѕРІР°РЅРёРµ СЃ Р·Р°РґРµСЂР¶РєРѕР№, С‡С‚РѕР±С‹ СЃРєСЂРёРїС‚ СѓСЃРїРµР» РІСЃС‘ СЃРґРµР»Р°С‚СЊ
+            Destroy(gameObject, 0.3f);
         }
     }
 }

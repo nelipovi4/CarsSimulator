@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - TrafficLight
+  - Car
   layers:
   - Default
   - TransparentFX
