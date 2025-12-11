@@ -1,4 +1,0 @@
-repository "CarSimulator/CarSimulator@7972505871697@cloud"
-  path "/"
-    br "/main"
-    co "/main"
