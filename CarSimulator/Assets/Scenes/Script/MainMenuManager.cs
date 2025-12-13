@@ -24,9 +24,22 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject ButtonsMultiPlayerRoomPanel;  // кнопки MultiplayerButtons
     [SerializeField] private GameObject createRoomPanel;       // панель CreateRoomPanel
     [SerializeField] private GameObject joinRoomPanel;         // панель JoinRoomPanel
+    [SerializeField] private GameObject settingsPanel;         // панель настроек
 
     [Header("BLUR IMAGE С ШЕЙДЕРОМ")]
     [SerializeField] private GameObject blurImage;             // Image с шейдером blur
+
+    [Header("Меню настроек")]
+    [SerializeField] private GameObject graphicsMenu;          // ScrollViewGraphics
+    [SerializeField] private GameObject soundMenu;             // ScrollViewSounds
+    [SerializeField] private GameObject languageMenu;          // ScrollViewLanguage
+    [SerializeField] private Button graphicsButton;            // Кнопка "Графика"
+    [SerializeField] private Button soundButton;               // Кнопка "Звук"
+    [SerializeField] private Button languageButton;            // Кнопка "Язык"
+
+    [Header("Цвета кнопок настроек")]
+    [SerializeField] private Color activeTabColor = new Color(1f, 1f, 1f, 1f);      // Белый для активной
+    [SerializeField] private Color inactiveTabColor = new Color(0.7f, 0.7f, 0.7f, 1f); // Серый для неактивной
 
     [Header("Валидация")]
     [SerializeField] private RoomValidator validator;          // Валидатор для проверки названий комнат
@@ -78,6 +91,10 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
             else if (multiplayerRoomPanel != null && multiplayerRoomPanel.activeSelf)
             {
                 CloseMultiplayerRoom();
+            }
+            else if (settingsPanel != null && settingsPanel.activeSelf)
+            {
+                CloseSettings();
             }
             else if (aboutAuthorPanel.activeSelf)
             {
@@ -132,6 +149,127 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
         if (blurImage != null)
             blurImage.SetActive(false);
+    }
+
+    // ============= НАСТРОЙКИ =============
+    public void OpenSettings()
+    {
+        SetButtonsInteractable(false);
+
+        if (settingsPanel != null)
+        {
+            settingsPanel.SetActive(true);
+
+            // По умолчанию открываем вкладку "Графика"
+            ShowGraphicsMenu();
+        }
+
+        if (blurImage != null)
+            blurImage.SetActive(true);
+
+        GameLogger.LogEvent("SettingsOpened", "Settings panel opened");
+    }
+
+    public void CloseSettings()
+    {
+        if (settingsPanel != null)
+            settingsPanel.SetActive(false);
+
+        SetButtonsInteractable(true);
+        DeselectAllButtons();
+
+        if (blurImage != null)
+            blurImage.SetActive(false);
+
+        GameLogger.LogEvent("SettingsClosed", "Settings panel closed");
+    }
+
+    // Переключение на вкладку "Графика"
+    public void ShowGraphicsMenu()
+    {
+        if (graphicsMenu != null)
+            graphicsMenu.SetActive(true);
+
+        if (soundMenu != null)
+            soundMenu.SetActive(false);
+
+        if (languageMenu != null)
+            languageMenu.SetActive(false);
+
+        // Визуальная индикация активной кнопки
+        UpdateTabButtonsState(graphicsButton);
+
+        GameLogger.LogEvent("SettingsTab", "Tab: Graphics");
+    }
+
+    // Переключение на вкладку "Звук"
+    public void ShowSoundMenu()
+    {
+        if (graphicsMenu != null)
+            graphicsMenu.SetActive(false);
+
+        if (soundMenu != null)
+            soundMenu.SetActive(true);
+
+        if (languageMenu != null)
+            languageMenu.SetActive(false);
+
+        // Визуальная индикация активной кнопки
+        UpdateTabButtonsState(soundButton);
+
+        GameLogger.LogEvent("SettingsTab", "Tab: Sound");
+    }
+
+    // Переключение на вкладку "Язык"
+    public void ShowLanguageMenu()
+    {
+        if (graphicsMenu != null)
+            graphicsMenu.SetActive(false);
+
+        if (soundMenu != null)
+            soundMenu.SetActive(false);
+
+        if (languageMenu != null)
+            languageMenu.SetActive(true);
+
+        // Визуальная индикация активной кнопки
+        UpdateTabButtonsState(languageButton);
+
+        GameLogger.LogEvent("SettingsTab", "Tab: Language");
+    }
+
+    // Обновление состояния кнопок вкладок (визуальная индикация)
+    private void UpdateTabButtonsState(Button activeButton)
+    {
+        // Обновляем кнопку "Графика"
+        if (graphicsButton != null)
+        {
+            graphicsButton.interactable = (graphicsButton != activeButton);
+            var colors = graphicsButton.colors;
+            colors.normalColor = (graphicsButton == activeButton) ? activeTabColor : inactiveTabColor;
+            colors.disabledColor = activeTabColor; // Цвет для выбранной (неактивной) кнопки
+            graphicsButton.colors = colors;
+        }
+
+        // Обновляем кнопку "Звук"
+        if (soundButton != null)
+        {
+            soundButton.interactable = (soundButton != activeButton);
+            var colors = soundButton.colors;
+            colors.normalColor = (soundButton == activeButton) ? activeTabColor : inactiveTabColor;
+            colors.disabledColor = activeTabColor;
+            soundButton.colors = colors;
+        }
+
+        // Обновляем кнопку "Язык"
+        if (languageButton != null)
+        {
+            languageButton.interactable = (languageButton != activeButton);
+            var colors = languageButton.colors;
+            colors.normalColor = (languageButton == activeButton) ? activeTabColor : inactiveTabColor;
+            colors.disabledColor = activeTabColor;
+            languageButton.colors = colors;
+        }
     }
 
     // ============= МУЛЬТИПЛЕЕР ПАНЕЛИ =============
@@ -341,6 +479,9 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
         if (joinRoomPanel != null)
             joinRoomPanel.SetActive(false);
+
+        if (settingsPanel != null)
+            settingsPanel.SetActive(false);
 
         if (blurImage != null)
             blurImage.SetActive(false);

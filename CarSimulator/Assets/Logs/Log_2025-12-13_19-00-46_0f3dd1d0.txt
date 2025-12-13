@@ -1,0 +1,46 @@
+================================================================================
+  DRIVING SIMULATOR - LOG FILE
+  Session ID: 0f3dd1d0
+  Start Time: 2025-12-13 19:00:46
+  Unity Version: 6000.2.6f2
+  Platform: WindowsEditor
+================================================================================
+
+[19:00:46.869] [SYSTEM      ] [LOG     ] Логгер инициализирован
+[19:00:46.869] [SYSTEM      ] [LOG     ] Локализация инициализирована. Всего ключей: 70
+[19:00:46.870] [SYSTEM      ] [LOG     ] Язык загружен из настроек: Russian
+[19:00:47.243] [SYSTEM      ] [LOG     ] Graphics settings loaded
+[19:00:47.243] [SYSTEM      ] [LOG     ] Graphics settings initialized
+[19:00:47.321] [SYSTEM      ] [LOG     ] Главное меню загружено
+[19:00:47.323] [SYSTEM      ] [LOG     ] Данные машины загружены: Pos(75,32, 0,00, -142,37)
+[19:00:47.323] [GAME        ] [LOG     ] EVENT: CarDataLoaded | Data: Position: (75.32, 0.00, -142.37)
+[19:00:53.413] [GAME        ] [LOG     ] EVENT: TurnSignal | Data: Side: Right, State: ON
+[19:00:54.335] [GAME        ] [LOG     ] EVENT: TurnSignal | Data: Side: Right, State: OFF
+[19:00:55.127] [GAME        ] [LOG     ] EVENT: TurnSignal | Data: Side: Left, State: ON
+[19:00:56.130] [GAME        ] [LOG     ] EVENT: TurnSignal | Data: Side: Left, State: OFF
+[19:01:30.357] [GAME        ] [LOG     ] EVENT: TurnSignal | Data: Side: Right, State: ON
+[19:01:33.253] [GAME        ] [LOG     ] EVENT: TurnSignal | Data: Side: Right, State: OFF
+[19:01:37.481] [GAME        ] [LOG     ] EVENT: TurnSignal | Data: Side: Right, State: ON
+[19:01:38.444] [GAME        ] [LOG     ] EVENT: TurnSignal | Data: Side: Right, State: OFF
+[19:01:40.833] [GAME        ] [LOG     ] EVENT: TurnSignal | Data: Side: Left, State: ON
+[19:01:41.495] [GAME        ] [LOG     ] EVENT: TurnSignal | Data: Side: Left, State: OFF
+[19:01:45.879] [GAME        ] [LOG     ] EVENT: MenuOpened | Data: Type: Pause
+[19:01:47.138] [SYSTEM      ] [LOG     ] Попытка открыть PDF: C:/Users/matve/OneDrive/Документы/GitHub/CarsSimulatorSolo/CarSimulator/Assets\Helper\Documentation.pdf
+[19:01:47.305] [SYSTEM      ] [LOG     ] PDF успешно открыт
+[19:01:56.970] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Graphics
+[19:01:56.971] [GAME        ] [LOG     ] EVENT: SettingsOpened | Data: Settings panel opened
+[19:01:57.985] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Sound
+[19:01:58.320] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Language
+[19:01:58.625] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Sound
+[19:01:58.873] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Graphics
+[19:01:59.164] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Sound
+[19:01:59.491] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Language
+[19:02:00.563] [SYSTEM      ] [LOG     ] Язык изменен на: English
+[19:02:00.565] [SYSTEM      ] [LOG     ] Пользователь изменил язык на: English
+[19:02:01.960] [SYSTEM      ] [LOG     ] Язык изменен на: Spanish
+[19:02:01.961] [SYSTEM      ] [LOG     ] Пользователь изменил язык на: Spanish
+[19:02:02.827] [GAME        ] [LOG     ] EVENT: SettingsClosed | Data: Settings panel closed
+[19:02:03.300] [GAME        ] [LOG     ] EVENT: MenuOpened | Data: Type: Pause
+[19:02:04.045] [SYSTEM      ] [LOG     ] Данные машины сохранены: Pos(74,66, 0,00, -147,11)
+[19:02:04.045] [GAME        ] [LOG     ] EVENT: CarDataSaved | Data: Position: (74.66, 0.00, -147.11)
+[19:02:04.047] [SYSTEM      ] [LOG     ] Приложение закрывается. Длительность сессии: 00:01:17

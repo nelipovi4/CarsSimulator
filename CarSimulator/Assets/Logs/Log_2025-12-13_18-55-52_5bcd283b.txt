@@ -1,0 +1,60 @@
+================================================================================
+  DRIVING SIMULATOR - LOG FILE
+  Session ID: 5bcd283b
+  Start Time: 2025-12-13 18:55:52
+  Unity Version: 6000.2.6f2
+  Platform: WindowsEditor
+================================================================================
+
+[18:55:52.043] [SYSTEM      ] [LOG     ] Логгер инициализирован
+[18:55:52.044] [SYSTEM      ] [LOG     ] Локализация инициализирована. Всего ключей: 70
+[18:55:52.044] [SYSTEM      ] [LOG     ] Язык загружен из настроек: Russian
+[18:55:52.635] [SYSTEM      ] [LOG     ] Graphics settings loaded
+[18:55:52.636] [SYSTEM      ] [LOG     ] Graphics settings initialized
+[18:55:52.712] [SYSTEM      ] [LOG     ] Главное меню загружено
+[18:55:52.713] [SYSTEM      ] [LOG     ] Данные машины загружены: Pos(94,01, 0,00, -97,04)
+[18:55:52.715] [GAME        ] [LOG     ] EVENT: CarDataLoaded | Data: Position: (94.01, 0.00, -97.04)
+[18:55:53.987] [GAME        ] [LOG     ] EVENT: MenuOpened | Data: Type: Pause
+[18:55:54.476] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Graphics
+[18:55:54.476] [GAME        ] [LOG     ] EVENT: SettingsOpened | Data: Settings panel opened
+[18:55:54.948] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Language
+[18:55:57.210] [GAME        ] [LOG     ] EVENT: SettingsClosed | Data: Settings panel closed
+[18:56:02.208] [GAME        ] [LOG     ] EVENT: MenuOpened | Data: Type: Pause
+[18:56:03.133] [GAME        ] [LOG     ] EVENT: MenuOpened | Data: Type: Pause
+[18:56:04.042] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Graphics
+[18:56:04.042] [GAME        ] [LOG     ] EVENT: SettingsOpened | Data: Settings panel opened
+[18:56:06.780] [GAME        ] [LOG     ] EVENT: SettingsClosed | Data: Settings panel closed
+[18:56:10.637] [GAME        ] [LOG     ] EVENT: MenuOpened | Data: Type: Pause
+[18:56:11.631] [GAME        ] [LOG     ] EVENT: MenuOpened | Data: Type: Pause
+[18:56:12.060] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Graphics
+[18:56:12.061] [GAME        ] [LOG     ] EVENT: SettingsOpened | Data: Settings panel opened
+[18:56:17.408] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Language
+[18:56:18.790] [SYSTEM      ] [LOG     ] Язык изменен на: English
+[18:56:18.791] [SYSTEM      ] [LOG     ] Пользователь изменил язык на: English
+[18:56:20.584] [SYSTEM      ] [LOG     ] Язык изменен на: Spanish
+[18:56:20.584] [SYSTEM      ] [LOG     ] Пользователь изменил язык на: Spanish
+[18:56:24.093] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Sound
+[18:56:24.493] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Graphics
+[18:56:32.768] [GAME        ] [LOG     ] EVENT: GraphicsApplied | Data: Quality: PC
+[18:56:32.769] [GAME        ] [LOG     ] EVENT: GraphicsApplied | Data: FPS Limit: 60
+[18:56:32.770] [GAME        ] [LOG     ] EVENT: GraphicsApplied | Data: VSync: False
+[18:56:32.772] [GAME        ] [LOG     ] EVENT: GraphicsApplied | Data: Gamma: 1,00
+[18:56:32.772] [SYSTEM      ] [LOG     ] Graphics settings saved
+[18:56:41.032] [GAME        ] [LOG     ] EVENT: GraphicsApplied | Data: Quality: PC
+[18:56:41.032] [GAME        ] [LOG     ] EVENT: GraphicsApplied | Data: FPS Limit: 129
+[18:56:41.034] [GAME        ] [LOG     ] EVENT: GraphicsApplied | Data: VSync: False
+[18:56:41.034] [GAME        ] [LOG     ] EVENT: GraphicsApplied | Data: Gamma: 1,00
+[18:56:41.035] [SYSTEM      ] [LOG     ] Graphics settings saved
+[18:56:42.854] [GAME        ] [LOG     ] EVENT: SettingsClosed | Data: Settings panel closed
+[18:56:43.540] [GAME        ] [LOG     ] EVENT: MenuOpened | Data: Type: Pause
+[18:56:44.285] [GAME        ] [LOG     ] EVENT: MenuOpened | Data: Type: Pause
+[18:56:44.641] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Graphics
+[18:56:44.643] [GAME        ] [LOG     ] EVENT: SettingsOpened | Data: Settings panel opened
+[18:56:47.052] [GAME        ] [LOG     ] EVENT: GraphicsApplied | Data: Quality: PC
+[18:56:47.063] [GAME        ] [LOG     ] EVENT: GraphicsApplied | Data: FPS Limit: 30
+[18:56:47.064] [GAME        ] [LOG     ] EVENT: GraphicsApplied | Data: VSync: False
+[18:56:47.064] [GAME        ] [LOG     ] EVENT: GraphicsApplied | Data: Gamma: 1,00
+[18:56:47.064] [SYSTEM      ] [LOG     ] Graphics settings saved
+[18:56:48.003] [GAME        ] [LOG     ] EVENT: SettingsClosed | Data: Settings panel closed
+[18:56:48.407] [GAME        ] [LOG     ] EVENT: MenuOpened | Data: Type: Pause
+[18:56:58.878] [SYSTEM      ] [LOG     ] Приложение закрывается. Длительность сессии: 00:01:06

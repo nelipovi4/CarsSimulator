@@ -1,0 +1,56 @@
+================================================================================
+  DRIVING SIMULATOR - LOG FILE
+  Session ID: 51090479
+  Start Time: 2025-12-13 18:59:14
+  Unity Version: 6000.2.6f2
+  Platform: WindowsEditor
+================================================================================
+
+[18:59:14.122] [SYSTEM      ] [LOG     ] Логгер инициализирован
+[18:59:14.122] [SYSTEM      ] [LOG     ] Локализация инициализирована. Всего ключей: 70
+[18:59:14.123] [SYSTEM      ] [LOG     ] Язык загружен из настроек: Spanish
+[18:59:14.667] [SYSTEM      ] [LOG     ] Graphics settings loaded
+[18:59:14.668] [SYSTEM      ] [LOG     ] Graphics settings initialized
+[18:59:14.739] [SYSTEM      ] [LOG     ] Главное меню загружено
+[18:59:14.741] [SYSTEM      ] [LOG     ] Данные машины загружены: Pos(75,74, 0,00, -140,13)
+[18:59:14.742] [GAME        ] [LOG     ] EVENT: CarDataLoaded | Data: Position: (75.74, 0.00, -140.13)
+[18:59:19.513] [GAME        ] [LOG     ] EVENT: MenuOpened | Data: Type: Pause
+[18:59:20.585] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Graphics
+[18:59:20.585] [GAME        ] [LOG     ] EVENT: SettingsOpened | Data: Settings panel opened
+[18:59:21.447] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Language
+[18:59:35.241] [SYSTEM      ] [LOG     ] Язык изменен на: Russian
+[18:59:35.241] [SYSTEM      ] [LOG     ] Пользователь изменил язык на: Russian
+[18:59:38.010] [GAME        ] [LOG     ] EVENT: SettingsClosed | Data: Settings panel closed
+[18:59:38.779] [GAME        ] [LOG     ] EVENT: MenuOpened | Data: Type: Pause
+[18:59:40.415] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Graphics
+[18:59:40.415] [GAME        ] [LOG     ] EVENT: SettingsOpened | Data: Settings panel opened
+[18:59:40.836] [GAME        ] [LOG     ] EVENT: SettingsClosed | Data: Settings panel closed
+[18:59:42.067] [GAME        ] [LOG     ] EVENT: MenuOpened | Data: Type: Pause
+[18:59:43.263] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Graphics
+[18:59:43.263] [GAME        ] [LOG     ] EVENT: SettingsOpened | Data: Settings panel opened
+[18:59:43.930] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Sound
+[18:59:44.282] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Language
+[18:59:44.769] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Graphics
+[18:59:45.131] [GAME        ] [LOG     ] EVENT: SettingsClosed | Data: Settings panel closed
+[18:59:46.416] [GAME        ] [LOG     ] EVENT: MenuOpened | Data: Type: Pause
+[18:59:47.575] [GAME        ] [LOG     ] EVENT: MenuOpened | Data: Type: Pause
+[18:59:48.620] [SYSTEM      ] [LOG     ] Данные машины сохранены: Pos(75,32, 0,00, -142,37)
+[18:59:48.621] [GAME        ] [LOG     ] EVENT: CarDataSaved | Data: Position: (75.32, 0.00, -142.37)
+[18:59:49.149] [SYSTEM      ] [LOG     ] Главное меню загружено
+[18:59:49.149] [SYSTEM      ] [LOG     ] Graphics settings loaded
+[18:59:49.149] [SYSTEM      ] [LOG     ] Graphics settings initialized
+[18:59:59.896] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Graphics
+[18:59:59.896] [GAME        ] [LOG     ] EVENT: SettingsOpened | Data: Settings panel opened
+[19:00:00.927] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Sound
+[19:00:01.227] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Language
+[19:00:01.527] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Sound
+[19:00:01.794] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Graphics
+[19:00:03.528] [GAME        ] [LOG     ] EVENT: GraphicsReset | Data: Graphics settings reset to defaults
+[19:00:03.528] [GAME        ] [LOG     ] EVENT: GraphicsReset | Data: Graphics settings reset to defaults
+[19:00:04.461] [GAME        ] [LOG     ] EVENT: GraphicsApplied | Data: Quality: PC
+[19:00:04.461] [GAME        ] [LOG     ] EVENT: GraphicsApplied | Data: FPS Limit: 60
+[19:00:04.462] [GAME        ] [LOG     ] EVENT: GraphicsApplied | Data: VSync: True
+[19:00:04.463] [GAME        ] [LOG     ] EVENT: GraphicsApplied | Data: Gamma: 1,00
+[19:00:04.463] [SYSTEM      ] [LOG     ] Graphics settings saved
+[19:00:05.328] [GAME        ] [LOG     ] EVENT: SettingsClosed | Data: Settings panel closed
+[19:00:06.671] [SYSTEM      ] [LOG     ] Приложение закрывается. Длительность сессии: 00:00:52

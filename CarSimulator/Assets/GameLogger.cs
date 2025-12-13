@@ -1,10 +1,10 @@
-using System;
+п»їusing System;
 using System.IO;
 using UnityEngine;
 
 /// <summary>
-/// Централизованная система логирования для симулятора вождения
-/// Записывает события в файл с временными метками
+/// Р¦РµРЅС‚СЂР°Р»РёР·РѕРІР°РЅРЅР°СЏ СЃРёСЃС‚РµРјР° Р»РѕРіРёСЂРѕРІР°РЅРёСЏ РґР»СЏ СЃРёРјСѓР»СЏС‚РѕСЂР° РІРѕР¶РґРµРЅРёСЏ
+/// Р—Р°РїРёСЃС‹РІР°РµС‚ СЃРѕР±С‹С‚РёСЏ РІ С„Р°Р№Р» СЃ РІСЂРµРјРµРЅРЅС‹РјРё РјРµС‚РєР°РјРё
 /// </summary>
 public class GameLogger : MonoBehaviour
 {
@@ -23,26 +23,26 @@ public class GameLogger : MonoBehaviour
         }
     }
 
-    [Header("Настройки")]
+    [Header("РќР°СЃС‚СЂРѕР№РєРё")]
     [SerializeField] private bool enableLogging = true;
     [SerializeField] private bool logToConsole = true;
     [SerializeField] private bool logToFile = true;
-    [SerializeField] private int maxLogFileSize = 5; // МБ
+    [SerializeField] private int maxLogFileSize = 5; // РњР‘
 
     private string logFilePath;
     private string sessionId;
     private DateTime sessionStartTime;
     private StreamWriter logWriter;
 
-    // Категории логов
+    // РљР°С‚РµРіРѕСЂРёРё Р»РѕРіРѕРІ
     public enum LogCategory
     {
-        Game,           // Игровые события
-        System,         // Системные события
-        Network,        // Сетевые события
-        Performance,    // Производительность
-        Error,          // Ошибки
-        Analytics       // Аналитика
+        Game,           // РРіСЂРѕРІС‹Рµ СЃРѕР±С‹С‚РёСЏ
+        System,         // РЎРёСЃС‚РµРјРЅС‹Рµ СЃРѕР±С‹С‚РёСЏ
+        Network,        // РЎРµС‚РµРІС‹Рµ СЃРѕР±С‹С‚РёСЏ
+        Performance,    // РџСЂРѕРёР·РІРѕРґРёС‚РµР»СЊРЅРѕСЃС‚СЊ
+        Error,          // РћС€РёР±РєРё
+        Analytics       // РђРЅР°Р»РёС‚РёРєР°
     }
 
     private void Awake()
@@ -64,18 +64,18 @@ public class GameLogger : MonoBehaviour
         sessionId = Guid.NewGuid().ToString().Substring(0, 8);
         sessionStartTime = DateTime.Now;
 
-        // Создаем папку для логов
+        // РЎРѕР·РґР°РµРј РїР°РїРєСѓ РґР»СЏ Р»РѕРіРѕРІ
         string logFolder = Path.Combine(Application.dataPath, "Logs");
         if (!Directory.Exists(logFolder))
         {
             Directory.CreateDirectory(logFolder);
         }
 
-        // Имя файла с датой и ID сессии
+        // РРјСЏ С„Р°Р№Р»Р° СЃ РґР°С‚РѕР№ Рё ID СЃРµСЃСЃРёРё
         string fileName = $"Log_{sessionStartTime:yyyy-MM-dd_HH-mm-ss}_{sessionId}.txt";
         logFilePath = Path.Combine(logFolder, fileName);
 
-        // Очищаем старые логи (оставляем только последние 10)
+        // РћС‡РёС‰Р°РµРј СЃС‚Р°СЂС‹Рµ Р»РѕРіРё (РѕСЃС‚Р°РІР»СЏРµРј С‚РѕР»СЊРєРѕ РїРѕСЃР»РµРґРЅРёРµ 10)
         CleanOldLogs(logFolder, 10);
 
         if (logToFile)
@@ -89,12 +89,12 @@ public class GameLogger : MonoBehaviour
             }
             catch (Exception e)
             {
-                Debug.LogError($"Не удалось создать файл лога: {e.Message}");
+                Debug.LogError($"РќРµ СѓРґР°Р»РѕСЃСЊ СЃРѕР·РґР°С‚СЊ С„Р°Р№Р» Р»РѕРіР°: {e.Message}");
                 logToFile = false;
             }
         }
 
-        Log(LogCategory.System, "Логгер инициализирован");
+        Log(LogCategory.System, "Р›РѕРіРіРµСЂ РёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°РЅ");
     }
 
     private void WriteHeader()
@@ -112,7 +112,7 @@ public class GameLogger : MonoBehaviour
     }
 
     /// <summary>
-    /// Основной метод логирования
+    /// РћСЃРЅРѕРІРЅРѕР№ РјРµС‚РѕРґ Р»РѕРіРёСЂРѕРІР°РЅРёСЏ
     /// </summary>
     public static void Log(LogCategory category, string message)
     {
@@ -120,7 +120,7 @@ public class GameLogger : MonoBehaviour
     }
 
     /// <summary>
-    /// Логирование предупреждений
+    /// Р›РѕРіРёСЂРѕРІР°РЅРёРµ РїСЂРµРґСѓРїСЂРµР¶РґРµРЅРёР№
     /// </summary>
     public static void LogWarning(LogCategory category, string message)
     {
@@ -128,7 +128,7 @@ public class GameLogger : MonoBehaviour
     }
 
     /// <summary>
-    /// Логирование ошибок
+    /// Р›РѕРіРёСЂРѕРІР°РЅРёРµ РѕС€РёР±РѕРє
     /// </summary>
     public static void LogError(LogCategory category, string message)
     {
@@ -136,7 +136,7 @@ public class GameLogger : MonoBehaviour
     }
 
     /// <summary>
-    /// Логирование игрового события с дополнительными данными
+    /// Р›РѕРіРёСЂРѕРІР°РЅРёРµ РёРіСЂРѕРІРѕРіРѕ СЃРѕР±С‹С‚РёСЏ СЃ РґРѕРїРѕР»РЅРёС‚РµР»СЊРЅС‹РјРё РґР°РЅРЅС‹РјРё
     /// </summary>
     public static void LogEvent(string eventName, params object[] data)
     {
@@ -157,7 +157,7 @@ public class GameLogger : MonoBehaviour
         string typeStr = logType.ToString().ToUpper().PadRight(8);
         string logMessage = $"[{timestamp}] [{categoryStr}] [{typeStr}] {message}";
 
-        // Вывод в консоль Unity
+        // Р’С‹РІРѕРґ РІ РєРѕРЅСЃРѕР»СЊ Unity
         if (logToConsole)
         {
             switch (logType)
@@ -174,19 +174,28 @@ public class GameLogger : MonoBehaviour
             }
         }
 
-        // Запись в файл
+        // Р—Р°РїРёСЃСЊ РІ С„Р°Р№Р»
         if (logToFile && logWriter != null)
         {
             try
             {
-                logWriter.WriteLine(logMessage);
-
-                // Проверка размера файла
-                CheckFileSize();
+                // РџР РћР’Р•Р РљРђ: С„Р°Р№Р» РµС‰Рµ РѕС‚РєСЂС‹С‚?
+                if (logWriter.BaseStream != null && logWriter.BaseStream.CanWrite)
+                {
+                    logWriter.WriteLine(logMessage);
+                    // РџСЂРѕРІРµСЂРєР° СЂР°Р·РјРµСЂР° С„Р°Р№Р»Р°
+                    CheckFileSize();
+                }
+            }
+            catch (ObjectDisposedException)
+            {
+                // Р¤Р°Р№Р» СѓР¶Рµ Р·Р°РєСЂС‹С‚, РЅРёС‡РµРіРѕ РЅРµ РґРµР»Р°РµРј
+                logToFile = false;
             }
             catch (Exception e)
             {
-                Debug.LogError($"Ошибка записи в лог: {e.Message}");
+                Debug.LogError($"РћС€РёР±РєР° Р·Р°РїРёСЃРё РІ Р»РѕРі: {e.Message}");
+                logToFile = false;
             }
         }
     }
@@ -202,14 +211,14 @@ public class GameLogger : MonoBehaviour
         {
             logWriter?.Close();
 
-            // Создаем новый файл
+            // РЎРѕР·РґР°РµРј РЅРѕРІС‹Р№ С„Р°Р№Р»
             string newFileName = $"Log_{DateTime.Now:yyyy-MM-dd_HH-mm-ss}_{sessionId}_continued.txt";
             logFilePath = Path.Combine(Path.GetDirectoryName(logFilePath), newFileName);
 
             logWriter = new StreamWriter(logFilePath, true);
             logWriter.AutoFlush = true;
 
-            Log(LogCategory.System, "Создан новый файл лога (превышен размер)");
+            Log(LogCategory.System, "РЎРѕР·РґР°РЅ РЅРѕРІС‹Р№ С„Р°Р№Р» Р»РѕРіР° (РїСЂРµРІС‹С€РµРЅ СЂР°Р·РјРµСЂ)");
         }
     }
 
@@ -222,38 +231,69 @@ public class GameLogger : MonoBehaviour
 
             if (files.Length <= keepCount) return;
 
-            // Сортируем по дате создания
+            // РЎРѕСЂС‚РёСЂСѓРµРј РїРѕ РґР°С‚Рµ СЃРѕР·РґР°РЅРёСЏ
             Array.Sort(files, (a, b) => a.CreationTime.CompareTo(b.CreationTime));
 
-            // Удаляем старые
+            // РЈРґР°Р»СЏРµРј СЃС‚Р°СЂС‹Рµ
             int toDelete = files.Length - keepCount;
             for (int i = 0; i < toDelete; i++)
             {
                 files[i].Delete();
             }
 
-            Debug.Log($"Удалено старых логов: {toDelete}");
+            Debug.Log($"РЈРґР°Р»РµРЅРѕ СЃС‚Р°СЂС‹С… Р»РѕРіРѕРІ: {toDelete}");
         }
         catch (Exception e)
         {
-            Debug.LogWarning($"Не удалось очистить старые логи: {e.Message}");
+            Debug.LogWarning($"РќРµ СѓРґР°Р»РѕСЃСЊ РѕС‡РёСЃС‚РёС‚СЊ СЃС‚Р°СЂС‹Рµ Р»РѕРіРё: {e.Message}");
         }
     }
 
     private void OnApplicationQuit()
     {
         TimeSpan sessionDuration = DateTime.Now - sessionStartTime;
-        Log(LogCategory.System, $"Приложение закрывается. Длительность сессии: {sessionDuration:hh\\:mm\\:ss}");
+        Log(LogCategory.System, $"РџСЂРёР»РѕР¶РµРЅРёРµ Р·Р°РєСЂС‹РІР°РµС‚СЃСЏ. Р”Р»РёС‚РµР»СЊРЅРѕСЃС‚СЊ СЃРµСЃСЃРёРё: {sessionDuration:hh\\:mm\\:ss}");
 
-        logWriter?.Close();
+        // РћС‚РєР»СЋС‡Р°РµРј Р»РѕРіРёСЂРѕРІР°РЅРёРµ РІ С„Р°Р№Р»
+        logToFile = false;
+
+        // Р—Р°РєСЂС‹РІР°РµРј С„Р°Р№Р»
+        try
+        {
+            if (logWriter != null)
+            {
+                logWriter.Flush();
+                logWriter.Close();
+                logWriter = null;
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning($"РћС€РёР±РєР° РїСЂРё Р·Р°РєСЂС‹С‚РёРё Р»РѕРіР°: {e.Message}");
+        }
     }
 
     private void OnDestroy()
     {
-        logWriter?.Close();
+        // РћС‚РєР»СЋС‡Р°РµРј Р»РѕРіРёСЂРѕРІР°РЅРёРµ РІ С„Р°Р№Р»
+        logToFile = false;
+
+        try
+        {
+            if (logWriter != null)
+            {
+                logWriter.Flush();
+                logWriter.Close();
+                logWriter = null;
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.LogWarning($"РћС€РёР±РєР° РїСЂРё Р·Р°РєСЂС‹С‚РёРё Р»РѕРіР°: {e.Message}");
+        }
     }
 
-    // Публичные методы для удобства
+    // РџСѓР±Р»РёС‡РЅС‹Рµ РјРµС‚РѕРґС‹ РґР»СЏ СѓРґРѕР±СЃС‚РІР°
 
     public static void LogCollision(string objectName, float velocity)
     {

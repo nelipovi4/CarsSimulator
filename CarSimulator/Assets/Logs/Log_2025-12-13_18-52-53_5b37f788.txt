@@ -1,0 +1,21 @@
+================================================================================
+  DRIVING SIMULATOR - LOG FILE
+  Session ID: 5b37f788
+  Start Time: 2025-12-13 18:52:53
+  Unity Version: 6000.2.6f2
+  Platform: WindowsEditor
+================================================================================
+
+[18:52:53.409] [SYSTEM      ] [LOG     ] Логгер инициализирован
+[18:52:53.409] [SYSTEM      ] [LOG     ] Локализация инициализирована. Всего ключей: 70
+[18:52:53.411] [SYSTEM      ] [LOG     ] Язык загружен из настроек: Russian
+[18:52:53.989] [SYSTEM      ] [LOG     ] Graphics settings loaded
+[18:52:53.989] [SYSTEM      ] [LOG     ] Graphics settings initialized
+[18:52:54.076] [SYSTEM      ] [LOG     ] Главное меню загружено
+[18:52:54.079] [SYSTEM      ] [LOG     ] Данные машины загружены: Pos(94,01, 0,00, -97,04)
+[18:52:54.079] [GAME        ] [LOG     ] EVENT: CarDataLoaded | Data: Position: (94.01, 0.00, -97.04)
+[18:52:55.809] [GAME        ] [LOG     ] EVENT: MenuOpened | Data: Type: Pause
+[18:52:56.413] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Graphics
+[18:52:56.413] [GAME        ] [LOG     ] EVENT: SettingsOpened | Data: Settings panel opened
+[18:52:57.021] [GAME        ] [LOG     ] EVENT: SettingsTab | Data: Tab: Language
+[18:52:59.830] [SYSTEM      ] [LOG     ] Приложение закрывается. Длительность сессии: 00:00:06
