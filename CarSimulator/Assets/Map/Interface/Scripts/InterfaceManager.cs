@@ -1,8 +1,13 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using System.Diagnostics;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using System.Collections;
+using System.IO;
 
+
+// Класс для обработки действий HUD
 public class InterfaceManager : MonoBehaviour
 {
     [Header("Меню")]
@@ -48,6 +53,8 @@ public class InterfaceManager : MonoBehaviour
     // Открываем меню паузы
     public void OpenMenu()
     {
+        GameLogger.LogEvent("MenuOpened", "Type: Pause");
+
         isMenuOpen = true;
 
         // Плавно убираем звук — БЕЗ ЩЕЛЧКА
@@ -104,6 +111,13 @@ public class InterfaceManager : MonoBehaviour
     // Кнопка "Quit" в меню паузы
     public void QuitGame()
     {
+        GameLogger.Log(GameLogger.LogCategory.System, "Выход из игры");
+
+        // Сохраняем позицию перед выходом
+        var carSaveSystem = FindObjectOfType<CarSaveSystem>();
+        if (carSaveSystem != null)
+            carSaveSystem.SaveCarData();
+
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -113,6 +127,11 @@ public class InterfaceManager : MonoBehaviour
 
     public void QuitToMenu()
     {
+        // Сохраняем позицию перед выходом
+        var carSaveSystem = FindObjectOfType<CarSaveSystem>();
+        if (carSaveSystem != null)
+            carSaveSystem.SaveCarData();
+
         // ВАЖНО: возвращаем всё в нормальное состояние ДО загрузки новой сцены
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.None;
@@ -165,5 +184,33 @@ public class InterfaceManager : MonoBehaviour
 
         AudioListener.volume = target;
         fadeCoroutine = null;
+    }
+    public void GetPdf()
+    {
+        string pdfPath = Path.Combine(Application.dataPath, "Helper", "Documentation.pdf");
+        GameLogger.Log(GameLogger.LogCategory.System, $"Попытка открыть PDF: {pdfPath}");
+
+        if (File.Exists(pdfPath))
+        {
+            try
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = pdfPath,
+                    UseShellExecute = true
+                });
+                GameLogger.Log(GameLogger.LogCategory.System, "PDF успешно открыт");
+            }
+            catch (System.Exception e)
+            {
+                GameLogger.LogError(GameLogger.LogCategory.Error,
+                    $"Ошибка открытия PDF: {e.Message}");
+            }
+        }
+        else
+        {
+            GameLogger.LogError(GameLogger.LogCategory.Error,
+                $"PDF файл не найден: {pdfPath}");
+        }
     }
 }

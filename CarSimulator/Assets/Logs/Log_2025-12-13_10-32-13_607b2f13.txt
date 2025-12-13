@@ -1,0 +1,12 @@
+================================================================================
+  DRIVING SIMULATOR - LOG FILE
+  Session ID: 607b2f13
+  Start Time: 2025-12-13 10:32:13
+  Unity Version: 6000.2.6f2
+  Platform: WindowsEditor
+================================================================================
+
+[10:32:13.235] [SYSTEM      ] [LOG     ] Логгер инициализирован
+[10:32:51.486] [GAME        ] [LOG     ] EVENT: Collision | Data: Object: Sign: Base, Velocity: 13,58
+[10:32:51.487] [GAME        ] [LOG     ] EVENT: SignBroken | Data: Sign: Base, Force: 1
+[10:34:17.990] [SYSTEM      ] [LOG     ] Приложение закрывается. Длительность сессии: 00:02:04

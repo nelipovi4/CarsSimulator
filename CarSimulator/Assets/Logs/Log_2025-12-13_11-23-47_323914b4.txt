@@ -1,0 +1,17 @@
+================================================================================
+  DRIVING SIMULATOR - LOG FILE
+  Session ID: 323914b4
+  Start Time: 2025-12-13 11:23:47
+  Unity Version: 6000.2.6f2
+  Platform: WindowsEditor
+================================================================================
+
+[11:23:47.110] [SYSTEM      ] [LOG     ] Логгер инициализирован
+[11:23:47.638] [SYSTEM      ] [LOG     ] Главное меню загружено
+[11:23:55.896] [GAME        ] [LOG     ] EVENT: GameModeSelected | Data: Mode: Multiplayer
+[11:23:55.913] [NETWORK     ] [LOG     ] ConnectAttempt: Connecting to Photon...
+[11:23:59.812] [NETWORK     ] [WARNING ] Попытка создать комнату с невалидным названием: '1' - Название слишком короткое (минимум 3 символов)
+[11:24:03.033] [NETWORK     ] [LOG     ] Название комнаты валидировано успешно: '1aa'
+[11:24:03.033] [NETWORK     ] [LOG     ] CreateRoom: Room: 1aa, MaxPlayers: 4
+[11:24:03.427] [NETWORK     ] [LOG     ] RoomJoined: Room: 1aa, Players: 1
+[11:24:07.461] [SYSTEM      ] [LOG     ] Приложение закрывается. Длительность сессии: 00:00:20

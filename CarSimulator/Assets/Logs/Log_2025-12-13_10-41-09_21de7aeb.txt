@@ -1,0 +1,21 @@
+================================================================================
+  DRIVING SIMULATOR - LOG FILE
+  Session ID: 21de7aeb
+  Start Time: 2025-12-13 10:41:09
+  Unity Version: 6000.2.6f2
+  Platform: WindowsEditor
+================================================================================
+
+[10:41:09.410] [SYSTEM      ] [LOG     ] Логгер инициализирован
+[10:41:09.822] [SYSTEM      ] [LOG     ] Главное меню загружено
+[10:41:29.788] [GAME        ] [LOG     ] EVENT: SceneLoad | Data: Scene: SinglePlayer
+[10:41:29.918] [GAME        ] [LOG     ] EVENT: GameModeSelected | Data: Mode: SinglePlayer
+[10:41:44.427] [SYSTEM      ] [LOG     ] Данные машины загружены: Pos(274,32, 0,20, 16,32)
+[10:41:44.428] [GAME        ] [LOG     ] EVENT: CarDataLoaded | Data: Position: (274.32, 0.20, 16.32)
+[10:41:48.335] [GAME        ] [LOG     ] Weak collision with sign (velocity: 0,96)
+[10:41:51.330] [GAME        ] [LOG     ] EVENT: MenuOpened | Data: Type: Pause
+[10:42:21.951] [GAME        ] [LOG     ] EVENT: MenuOpened | Data: Type: Pause
+[10:42:22.766] [SYSTEM      ] [LOG     ] Выход из игры
+[10:42:22.784] [SYSTEM      ] [LOG     ] Данные машины сохранены: Pos(270,75, 0,20, 15,67)
+[10:42:22.785] [GAME        ] [LOG     ] EVENT: CarDataSaved | Data: Position: (270.75, 0.20, 15.67)
+[10:42:22.894] [SYSTEM      ] [LOG     ] Приложение закрывается. Длительность сессии: 00:01:13

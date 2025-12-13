@@ -2,6 +2,9 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.UI;
+
+
+// Класс-обработчик действий главного меню
 public class MenuManager : MonoBehaviourPunCallbacks
 {
     public InputField create;

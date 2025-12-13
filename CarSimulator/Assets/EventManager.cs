@@ -5,6 +5,8 @@ using TMPro;
 using System;
 using System.Collections;
 
+
+// Класс-обработчик событий в игре
 public class EventManager : MonoBehaviour
 {
     [SerializeField] private GameObject speedometer;
@@ -101,6 +103,7 @@ public class EventManager : MonoBehaviour
         // Вращаем вокруг точки pivotPoint
         steeringWheel.RotateAround(pivotPoint.position, pivotPoint.forward, smoothDelta);
     }
+
     private void UpdateTimeAndDate()
     {
         DateTime now = DateTime.Now;
@@ -116,9 +119,14 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    // Обработка левого поворотника
     private void ToggleLeftSignal()
     {
         leftSignalActive = !leftSignalActive;
+
+        GameLogger.LogEvent("TurnSignal",
+        $"Side: Left",
+        $"State: {(leftSignalActive ? "ON" : "OFF")}");
 
         if (leftSignalActive)
         {
@@ -142,9 +150,14 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    // Обработка правого поворотника
     private void ToggleRightSignal()
     {
         rightSignalActive = !rightSignalActive;
+
+        GameLogger.LogEvent("TurnSignal",
+        $"Side: Right",
+        $"State: {(rightSignalActive ? "ON" : "OFF")}");
 
         if (rightSignalActive)
         {
@@ -168,6 +181,7 @@ public class EventManager : MonoBehaviour
         }
     }
 
+    // Перемещение стрелки при изменении скорости
     private IEnumerator BlinkArrow(Image arrow)
     {
         while (true)

@@ -1,9 +1,15 @@
-﻿using UnityEngine;
+﻿using Photon.Pun;
+using Photon.Realtime;
+using System;
+using System.Diagnostics;
+using System.IO;
+using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using Photon.Pun;
-using Photon.Realtime;
+
+
+// Класс-обработчик действий главного меню
 public class MainMenuManager : MonoBehaviourPunCallbacks
 {
     [Header("Сцены")]
@@ -22,6 +28,10 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     [Header("BLUR IMAGE С ШЕЙДЕРОМ")]
     [SerializeField] private GameObject blurImage;             // Image с шейдером blur
 
+    [Header("Валидация")]
+    [SerializeField] private RoomValidator validator;          // Валидатор для проверки названий комнат
+    [SerializeField] private Text errorMessageText;            // Текст для отображения ошибок (опционально)
+
     private Button[] menuButtons; // храним все кнопки главного меню
     public InputField create;
     public InputField join;
@@ -31,6 +41,24 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
         CloseAllPanels(); // на старте только главное меню видно
         // Получаем все кнопки в mainMenuButtons
         menuButtons = mainMenuButtons.GetComponentsInChildren<Button>();
+
+        // Если валидатор не назначен, ищем или создаем
+        if (validator == null)
+        {
+            validator = FindObjectOfType<RoomValidator>();
+            if (validator == null)
+            {
+                GameObject go = new GameObject("RoomValidator");
+                validator = go.AddComponent<RoomValidator>();
+            }
+        }
+
+        // Скрываем текст ошибки, если он есть
+        if (errorMessageText != null)
+            errorMessageText.gameObject.SetActive(false);
+
+        // ЛОГИРОВАНИЕ ЗАПУСКА
+        GameLogger.Log(GameLogger.LogCategory.System, "Главное меню загружено");
     }
 
     private void Update()
@@ -61,11 +89,17 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
     // ============= ГЛАВНОЕ МЕНЮ =============
     public void PlaySinglePlayer()
     {
+        GameLogger.LogSceneLoad("SinglePlayer");
+        GameLogger.LogEvent("GameModeSelected", "Mode: SinglePlayer");
+
         SceneManager.LoadScene(windowLoadingSceneIndex);
     }
 
     public void PlayMultiplayer()
     {
+        GameLogger.LogEvent("GameModeSelected", "Mode: Multiplayer");
+        GameLogger.LogNetworkEvent("ConnectAttempt", "Connecting to Photon...");
+
         PhotonNetwork.ConnectUsingSettings();
         // Открываем панель выбора комнаты вместо загрузки сцены
         OpenMultiplayerRoom();
@@ -191,12 +225,35 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
             ButtonsMultiPlayerRoomPanel.SetActive(true);
     }
 
-    // ============= ДЕЙСТВИЯ С КОМНАТАМИ =============
+    // ============= ДЕЙСТВИЯ С КОМНАТАМИ С ВАЛИДАЦИЕЙ =============
     public void CreateRoomAndGo()
     {
+        string roomName = create.text;
+
+        // ВАЛИДАЦИЯ НАЗВАНИЯ КОМНАТЫ
+        var result = validator.ValidateRoomName(roomName);
+
+        if (!result.isValid)
+        {
+            // Показываем ошибку пользователю
+            ShowErrorMessage($"Ошибка: {result.errorMessage}");
+
+            // Логируем попытку создания комнаты с невалидным названием
+            GameLogger.LogWarning(GameLogger.LogCategory.Network,
+                $"Попытка создать комнату с невалидным названием: '{roomName}' - {result.errorMessage}");
+            return;
+        }
+
+        // Используем очищенное название
+        string cleanRoomName = result.sanitizedValue;
+
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 4;
-        PhotonNetwork.CreateRoom(create.text, roomOptions);
+
+        GameLogger.LogNetworkEvent("CreateRoom",
+            $"Room: {cleanRoomName}, MaxPlayers: {roomOptions.MaxPlayers}");
+
+        PhotonNetwork.CreateRoom(cleanRoomName, roomOptions);
     }
 
     public void JoinRoomAndGo()
@@ -206,8 +263,52 @@ public class MainMenuManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        GameLogger.LogNetworkEvent("RoomJoined",
+            $"Room: {PhotonNetwork.CurrentRoom.Name}, Players: {PhotonNetwork.CurrentRoom.PlayerCount}");
+
         PhotonNetwork.LoadLevel("test_online");
     }
+
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        ShowErrorMessage($"Не удалось создать комнату: {message}");
+        GameLogger.LogError(GameLogger.LogCategory.Network,
+            $"CreateRoom failed: Code {returnCode}, Message: {message}");
+    }
+
+    public override void OnJoinRoomFailed(short returnCode, string message)
+    {
+        ShowErrorMessage($"Не удалось присоединиться: {message}");
+        GameLogger.LogError(GameLogger.LogCategory.Network,
+            $"JoinRoom failed: Code {returnCode}, Message: {message}");
+    }
+
+    // ============= ПОКАЗ СООБЩЕНИЙ ОБ ОШИБКАХ =============
+    private void ShowErrorMessage(string message)
+    {
+        // Если есть UI элемент для ошибок - показываем
+        if (errorMessageText != null)
+        {
+            errorMessageText.text = message;
+            errorMessageText.gameObject.SetActive(true);
+
+            // Автоматически скрываем через 3 секунды
+            CancelInvoke(nameof(HideErrorMessage));
+            Invoke(nameof(HideErrorMessage), 3f);
+        }
+        else
+        {
+            // Если UI нет - выводим в консоль
+            UnityEngine.Debug.LogWarning(message);
+        }
+    }
+
+    private void HideErrorMessage()
+    {
+        if (errorMessageText != null)
+            errorMessageText.gameObject.SetActive(false);
+    }
+
     // ============= ВСПОМОГАТЕЛЬНЫЕ МЕТОДЫ =============
     private void SetButtonsInteractable(bool interactable)
     {
