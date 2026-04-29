@@ -3,11 +3,10 @@
 Реалистичный симулятор вождения по типичному городскому микрорайону, где вы становитесь водителем обычной машины и учитесь или оттачиваете навыки езды по правилам дорожного движения.
 
 <img width="1071" height="600" alt="image" src="https://github.com/user-attachments/assets/51f1d195-3145-4e14-a0d0-6eb5ed279ef9" />
-<img width="1065" height="598" alt="image" src="https://github.com/user-attachments/assets/0e2aed7d-7d96-4756-afee-f649fd274adf" />
-<img width="1068" height="603" alt="image" src="https://github.com/user-attachments/assets/a7cba339-bcda-4af6-a996-acf6f923b81d" />
-<img width="1070" height="596" alt="image" src="https://github.com/user-attachments/assets/ea2408ae-79a5-4f1f-beed-7ae56b804c41" />
-
-
+<img width="954" height="532" alt="image" src="https://github.com/user-attachments/assets/ce03569b-13d9-4982-8707-d8e19817b06b" />
+<img width="915" height="527" alt="image" src="https://github.com/user-attachments/assets/6186371a-9a72-4fc5-a451-2c189f66cfec" />
+<img width="945" height="523" alt="image" src="https://github.com/user-attachments/assets/3b39b10a-562a-40de-9b9d-ad9f3fa2f0a4" />
+<img width="947" height="529" alt="image" src="https://github.com/user-attachments/assets/0aa4da5a-1fbf-46b4-99ba-77acac7a028c" />
 
 ## 📝 Описание
 
